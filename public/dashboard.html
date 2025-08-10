@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Micro Anime</title>
+    <meta name="description" content="Your personalized Micro Anime dashboard">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-white text-black font-inter overflow-x-hidden">
+    
+    <!-- Modern Anime Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <nav class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">MA</span>
+                    </div>
+                    <span class="text-black font-bold text-xl">Micro Anime</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html#stories" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        <i class="fas fa-book-open mr-2"></i>Stories
+                    </a>
+                    <a href="index.html#trending" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        <i class="fas fa-fire mr-2"></i>Trending
+                    </a>
+                    <a href="index.html#genres" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        <i class="fas fa-tags mr-2"></i>Genres
+                    </a>
+                    <button id="userMenuBtn" class="text-2xl">
+                        👤
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu -->
+                <div class="md:hidden">
+                    <button class="text-gray-600 hover:text-black">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="min-h-screen py-20 px-4 mt-16">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-black">Profile</h2>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <button id="logoutBtn" class="px-4 py-2 bg-black text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Sign Out
+                    </button>
+                </div>
+            </div>
+            
+            <div id="dashboardContent" class="max-w-2xl mx-auto">
+                <div class="text-center">
+                    <div class="w-24 h-24 rounded-full bg-gray-200 mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                        <img id="userPhoto" src="https://ui-avatars.com/api/?name=User&background=random&color=fff" alt="User Photo" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-2xl font-bold text-black mb-2" id="userName">User</h3>
+                    <p class="text-gray-600 mb-6" id="userEmail">user@example.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Menu Dropdown -->
+    <div id="userMenu" class="absolute right-4 top-16 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 hidden z-50">
+        <div class="p-4 border-b border-gray-200">
+            <p class="text-black font-medium" id="dropdownUserEmail">user@example.com</p>
+        </div>
+        <div class="py-2">
+            <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-black">
+                <i class="fas fa-home mr-2"></i>Home
+            </a>
+            <button id="dropdownLogoutBtn" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-black">
+                <i class="fas fa-sign-out-alt mr-2"></i>Sign Out
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 pt-16 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">MA</span>
+                        </div>
+                        <span class="text-black font-bold text-xl">Micro Anime</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Discover beautiful micro anime stories in bite-sized narratives.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-black">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-black">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-black">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-black">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-black font-bold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-600 hover:text-black transition-colors">Home</a></li>
+                        <li><a href="index.html#stories" class="text-gray-600 hover:text-black transition-colors">Stories</a></li>
+                        <li><a href="index.html#trending" class="text-gray-600 hover:text-black transition-colors">Trending</a></li>
+                        <li><a href="index.html#genres" class="text-gray-600 hover:text-black transition-colors">Genres</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-black font-bold text-lg mb-4">Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors">Copyright</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-8 text-center">
+                <p class="text-gray-500">
+                    &copy; 2025 Micro Anime. All rights reserved. This site is not affiliated with any anime studios.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Module -->
+    <script type="module" src="js/auth.js"></script>
+    
+    <script type="module">
+        import authManager from './js/auth.js';
+        
+        // Wait for DOM to be loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const userMenuBtn = document.getElementById('userMenuBtn');
+            const userMenu = document.getElementById('userMenu');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const dropdownLogoutBtn = document.getElementById('dropdownLogoutBtn');
+            const userEmail = document.getElementById('userEmail');
+            const dropdownUserEmail = document.getElementById('dropdownUserEmail');
+            const userName = document.getElementById('userName');
+            const userPhoto = document.getElementById('userPhoto');
+            const dashboardContent = document.getElementById('dashboardContent');
+            
+            // Toggle user menu
+            userMenuBtn.addEventListener('click', () => {
+                userMenu.classList.toggle('hidden');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!userMenuBtn.contains(e.target) && !userMenu.contains(e.target)) {
+                    userMenu.classList.add('hidden');
+                }
+            });
+            
+            // Logout functionality
+            const handleLogout = async () => {
+                const result = await authManager.logoutUser();
+                if (result.success) {
+                    window.location.href = 'index.html';
+                } else {
+                    alert('Error logging out: ' + result.error);
+                }
+            };
+            
+            logoutBtn.addEventListener('click', handleLogout);
+            dropdownLogoutBtn.addEventListener('click', handleLogout);
+            
+            // Check auth state and load dashboard
+            import { auth, onAuthStateChanged } from './js/firebase/config.js';
+            
+            onAuthStateChanged(auth, async (user) => {
+                if (user) {
+                    // User is signed in
+                    userEmail.textContent = user.email;
+                    dropdownUserEmail.textContent = user.email;
+                    
+                    // Load user data from Firestore
+                    await authManager.loadUserData(user.uid);
+                    if (authManager.userData) {
+                        // Set user name
+                        const displayName = authManager.userData.displayName || user.displayName || user.email.split('@')[0];
+                        userName.textContent = displayName;
+                        
+                        // Set user photo
+                        if (authManager.userData.photoURL) {
+                            userPhoto.src = authManager.userData.photoURL;
+                        } else if (user.photoURL) {
+                            userPhoto.src = user.photoURL;
+                        } else {
+                            // Generate avatar based on user's name or email
+                            userPhoto.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=random&color=fff`;
+                        }
+                    }
+                } else {
+                    // User is signed out
+                    window.location.href = 'login.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

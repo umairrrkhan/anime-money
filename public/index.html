@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Wings - Micro Anime Stories</title>
-    <meta name="description" content="Discover beautiful micro anime stories in a seamless 120 FPS experience">
+    <title>Micro Anime - Micro Anime Stories</title>
+    <meta name="description" content="Discover beautiful micro anime stories in a seamless experience">
     
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,31 +18,46 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body class="bg-white font-inter overflow-x-hidden">
     
-    <!-- Glass Cylindrical Header -->
-    <header class="fixed top-0 w-full z-50">
-        <div class="glass-header mx-4 mt-4 rounded-full backdrop-blur-xl bg-white/10 border border-white/20 shadow-lg">
-            <nav class="flex items-center justify-between px-8 py-4">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Auth Module -->
+    <script type="module" src="js/auth.js"></script>
+</head>
+<body class="bg-white text-black font-inter overflow-x-hidden">
+    
+    <!-- Modern Anime Header -->
+    <header class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <nav class="flex items-center justify-between h-16">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
-                        <span class="text-white font-bold text-sm">AW</span>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">MA</span>
                     </div>
-                    <span class="text-white font-semibold text-lg">Anime Wings</span>
+                    <span class="text-black font-bold text-xl">Micro Anime</span>
                 </div>
                 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#stories" class="text-white/90 hover:text-white transition-colors duration-200">Stories</a>
-                    <a href="#dashboard" class="text-white/90 hover:text-white transition-colors duration-200">Dashboard</a>
-                    <button id="loginBtn" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-full transition-all duration-200">Login</button>
+                    <a href="#stories" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        <i class="fas fa-book-open mr-2"></i>Stories
+                    </a>
+                    <a href="#trending" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        <i class="fas fa-fire mr-2"></i>Trending
+                    </a>
+                    <a href="#genres" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        <i class="fas fa-tags mr-2"></i>Genres
+                    </a>
+                    <a href="login.html" id="loginBtn" class="px-4 py-2 bg-black text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Login
+                    </a>
                 </div>
                 
                 <!-- Mobile Menu -->
                 <div class="md:hidden">
-                    <button class="text-white/90 hover:text-white">
+                    <button class="text-gray-600 hover:text-black">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -52,147 +67,919 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="min-h-screen flex items-center justify-center relative">
-        <!-- Background Gradient -->
-        <div class="absolute inset-0 bg-gradient-to-br from-purple-100 via-white to-pink-100"></div>
-        
-        <!-- Floating Elements -->
-        <div class="floating-element absolute top-20 left-10 w-20 h-20 bg-purple-200 rounded-full opacity-30"></div>
-        <div class="floating-element-delay absolute bottom-20 right-10 w-32 h-32 bg-pink-200 rounded-full opacity-20"></div>
-        
-        <div class="relative z-10 text-center px-4">
-            <h1 class="text-5xl md:text-7xl font-bold text-gray-800 mb-6 animate-fade-in">
-                Micro Anime
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">Stories</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto animate-fade-in-delay">
-                Experience beautiful anime narratives in bite-sized stories. Smooth, fast, and absolutely free.
-            </p>
-            <button class="explore-btn px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                Explore Stories
-            </button>
-        </div>
-    </section>
-
     <!-- Featured Stories Section -->
-    <section id="stories" class="py-20 px-4">
+    <section id="stories" class="py-16 px-4 bg-white">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Featured Stories</h2>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Story 1 -->
-                <div class="story-card group cursor-pointer" data-story="story1">
-                    <div class="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="aspect-[4/3] bg-gradient-to-br from-purple-400 to-pink-400 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                                    <span class="text-2xl">📖</span>
-                                </div>
-                                <h3 class="text-xl font-semibold">Cherry Blossoms</h3>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">The Last Sakura</h4>
-                            <p class="text-gray-600 text-sm">A touching tale of love and loss under the cherry blossoms...</p>
-                            <div class="mt-4 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">5 min read</span>
-                                <span class="text-xs bg-purple-100 text-purple-600 px-2 py-1 rounded-full">Romance</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Story 2 -->
-                <div class="story-card group cursor-pointer" data-story="story2">
-                    <div class="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="aspect-[4/3] bg-gradient-to-br from-blue-400 to-cyan-400 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                                    <span class="text-2xl">⚔️</span>
-                                </div>
-                                <h3 class="text-xl font-semibold">Spirit Realm</h3>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Guardian's Path</h4>
-                            <p class="text-gray-600 text-sm">A young warrior's journey to protect the spirit realm...</p>
-                            <div class="mt-4 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">8 min read</span>
-                                <span class="text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded-full">Action</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Story 3 -->
-                <div class="story-card group cursor-pointer" data-story="story3">
-                    <div class="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
-                        <div class="aspect-[4/3] bg-gradient-to-br from-green-400 to-emerald-400 flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
-                                    <span class="text-2xl">🌸</span>
-                                </div>
-                                <h3 class="text-xl font-semibold">Dream Garden</h3>
-                            </div>
-                        </div>
-                        <div class="p-6">
-                            <h4 class="text-lg font-semibold text-gray-800 mb-2">Whispers of Spring</h4>
-                            <p class="text-gray-600 text-sm">A magical garden where dreams take physical form...</p>
-                            <div class="mt-4 flex items-center justify-between">
-                                <span class="text-xs text-gray-500">6 min read</span>
-                                <span class="text-xs bg-green-100 text-green-600 px-2 py-1 rounded-full">Fantasy</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-black">Featured Stories</h2>
+                <a href="#" class="text-black hover:text-gray-700 font-medium flex items-center text-sm">
+                    View All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
-        </div>
-    </section>
-
-    <!-- Dashboard Section -->
-    <section id="dashboard" class="py-20 px-4 bg-gray-50 hidden" id="dashboardSection">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">Your Dashboard</h2>
             
-            <div id="dashboardContent" class="text-center">
-                <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span class="text-3xl">👤</span>
+            <!-- Carousel Container -->
+            <div class="relative">
+                <!-- Carousel Wrapper -->
+                <div id="storiesCarousel" class="overflow-hidden">
+                    <div id="storiesContainer" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Story 1 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822716.png" alt="The Last Sakura" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">The Last Sakura</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-purple-100 text-purple-800 px-1 py-0.5 rounded">Romance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Story 2 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822762.png" alt="Guardian's Path" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        HOT
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Guardian's Path</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded">Action</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Story 3 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822821.png" alt="Whispers of Spring" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        TRENDING
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Whispers of Spring</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Fantasy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Story 4 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822875.png" alt="Moonlit Serenade" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        POPULAR
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Moonlit Serenade</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded">Music</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Story 5 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823013.png" alt="Digital Dreams" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-cyan-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Digital Dreams</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-cyan-100 text-cyan-800 px-1 py-0.5 rounded">Sci-Fi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Story 6 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823073.png" alt="Ocean's Secret" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-teal-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        FEATURED
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Ocean's Secret</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-teal-100 text-teal-800 px-1 py-0.5 rounded">Adventure</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-xl font-semibold text-gray-700 mb-2">Login to track your progress</h3>
-                <p class="text-gray-600 mb-6">Sign in to save your reading progress and access your personalized dashboard</p>
-                <button id="dashboardLoginBtn" class="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold hover:shadow-lg transition-all duration-200">
-                    Sign In
+
+                <!-- Carousel Navigation -->
+                <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200">
+                    <i class="fas fa-chevron-left text-black text-sm"></i>
+                </button>
+                <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200">
+                    <i class="fas fa-chevron-right text-black text-sm"></i>
                 </button>
             </div>
         </div>
     </section>
 
+    <!-- Trending Section -->
+    <section id="trending" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-bold text-black mb-10">Trending Now</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Trending Story 1 -->
+                <div class="group cursor-pointer">
+                    <div class="relative">
+                        <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                            <img src="assets/1754823196.png" alt="The Last Sakura" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h4 class="text-sm font-bold text-black truncate">The Last Sakura</h4>
+                        <div class="flex flex-wrap gap-1 mt-1">
+                            <span class="text-xs bg-purple-100 text-purple-800 px-1 py-0.5 rounded">Romance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Story 2 -->
+                <div class="group cursor-pointer">
+                    <div class="relative">
+                        <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                            <img src="assets/1754823273.png" alt="Guardian's Path" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h4 class="text-sm font-bold text-black truncate">Guardian's Path</h4>
+                        <div class="flex flex-wrap gap-1 mt-1">
+                            <span class="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded">Action</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Story 3 -->
+                <div class="group cursor-pointer">
+                    <div class="relative">
+                        <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                            <img src="assets/1754822716.png" alt="The Last Sakura" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h4 class="text-sm font-bold text-black truncate">The Last Sakura</h4>
+                        <div class="flex flex-wrap gap-1 mt-1">
+                            <span class="text-xs bg-pink-100 text-pink-800 px-1 py-0.5 rounded">Romance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trending Story 4 -->
+                <div class="group cursor-pointer">
+                    <div class="relative">
+                        <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                            <img src="assets/1754822821.png" alt="Whispers of Spring" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <h4 class="text-sm font-bold text-black truncate">Whispers of Spring</h4>
+                        <div class="flex flex-wrap gap-1 mt-1">
+                            <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Fantasy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Romance Category Section -->
+    <section id="romance" class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-black">Romance</h2>
+                <a href="#" class="text-black hover:text-gray-700 font-medium flex items-center text-sm">
+                    View All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Romance Carousel Container -->
+            <div class="relative">
+                <!-- Romance Carousel Wrapper -->
+                <div id="romanceCarousel" class="overflow-hidden">
+                    <div id="romanceContainer" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Romance Story 1 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822716.png" alt="The Last Sakura" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">The Last Sakura</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-pink-100 text-pink-800 px-1 py-0.5 rounded">Romance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Romance Story 2 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823013.png" alt="Moonlit Serenade" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        HOT
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Moonlit Serenade</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-pink-100 text-pink-800 px-1 py-0.5 rounded">Romance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Romance Story 3 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822821.png" alt="Whispers of Spring" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        TRENDING
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Whispers of Spring</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-pink-100 text-pink-800 px-1 py-0.5 rounded">Romance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Romance Story 4 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823073.png" alt="Ocean's Secret" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        POPULAR
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Ocean's Secret</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-pink-100 text-pink-800 px-1 py-0.5 rounded">Romance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Romance Story 5 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822875.png" alt="Moonlit Serenade" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        FEATURED
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Moonlit Serenade</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-pink-100 text-pink-800 px-1 py-0.5 rounded">Romance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Romance Story 6 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823196.png" alt="The Last Sakura" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-pink-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">The Last Sakura</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-pink-100 text-pink-800 px-1 py-0.5 rounded">Romance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Romance Carousel Navigation -->
+                <button id="romancePrevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200">
+                    <i class="fas fa-chevron-left text-black text-sm"></i>
+                </button>
+                <button id="romanceNextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200">
+                    <i class="fas fa-chevron-right text-black text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Minded Category Section -->
+    <section id="open-minded" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-black">Open Minded</h2>
+                <a href="#" class="text-black hover:text-gray-700 font-medium flex items-center text-sm">
+                    View All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Open Minded Carousel Container -->
+            <div class="relative">
+                <!-- Open Minded Carousel Wrapper -->
+                <div id="openMindedCarousel" class="overflow-hidden">
+                    <div id="openMindedContainer" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Open Minded Story 1 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822875.png" alt="Digital Dreams" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-cyan-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Digital Dreams</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-cyan-100 text-cyan-800 px-1 py-0.5 rounded">Sci-Fi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Open Minded Story 2 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823196.png" alt="The Last Sakura" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        TRENDING
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">The Last Sakura</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-purple-100 text-purple-800 px-1 py-0.5 rounded">Romance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Open Minded Story 3 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823273.png" alt="Guardian's Path" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        HOT
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Guardian's Path</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded">Action</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Open Minded Story 4 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823320.png" alt="Whispers of Spring" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        FEATURED
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Whispers of Spring</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Fantasy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Open Minded Story 5 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823013.png" alt="Moonlit Serenade" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Moonlit Serenade</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded">Music</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Open Minded Story 6 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823073.png" alt="Ocean's Secret" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-cyan-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        TRENDING
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Ocean's Secret</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-cyan-100 text-cyan-800 px-1 py-0.5 rounded">Adventure</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Open Minded Carousel Navigation -->
+                <button id="openMindedPrevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200">
+                    <i class="fas fa-chevron-left text-black text-sm"></i>
+                </button>
+                <button id="openMindedNextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200">
+                    <i class="fas fa-chevron-right text-black text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newly Released Category Section -->
+    <section id="newly-released" class="py-16 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-2xl md:text-3xl font-bold text-black">Newly Released</h2>
+                <a href="#" class="text-black hover:text-gray-700 font-medium flex items-center text-sm">
+                    View All <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            
+            <!-- Newly Released Carousel Container -->
+            <div class="relative">
+                <!-- Newly Released Carousel Wrapper -->
+                <div id="newlyReleasedCarousel" class="overflow-hidden">
+                    <div id="newlyReleasedContainer" class="flex transition-transform duration-500 ease-in-out">
+                        <!-- Newly Released Story 1 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822762.png" alt="Guardian's Path" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Guardian's Path</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Action</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newly Released Story 2 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823013.png" alt="Moonlit Serenade" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Moonlit Serenade</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Music</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newly Released Story 3 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823073.png" alt="Ocean's Secret" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Ocean's Secret</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Adventure</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newly Released Story 4 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822821.png" alt="Whispers of Spring" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Whispers of Spring</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Fantasy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newly Released Story 5 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754822875.png" alt="Digital Dreams" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Digital Dreams</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Sci-Fi</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newly Released Story 6 -->
+                        <div class="flex-shrink-0 w-1/6 p-2">
+                            <div class="group cursor-pointer">
+                                <div class="relative">
+                                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                                        <img src="assets/1754823320.png" alt="Whispers of Spring" class="w-full h-full object-cover">
+                                    </div>
+                                    <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                                        NEW
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <h4 class="text-sm font-bold text-black truncate">Whispers of Spring</h4>
+                                    <div class="flex flex-wrap gap-1 mt-1">
+                                        <span class="text-xs bg-green-100 text-green-800 px-1 py-0.5 rounded">Fantasy</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newly Released Carousel Navigation -->
+                <button id="newlyReleasedPrevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200">
+                    <i class="fas fa-chevron-left text-black text-sm"></i>
+                </button>
+                <button id="newlyReleasedNextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200">
+                    <i class="fas fa-chevron-right text-black text-sm"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 border-t border-gray-200 pt-12 pb-8 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">MA</span>
+                        </div>
+                        <span class="text-black font-bold text-xl">Micro Anime</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Discover beautiful micro anime stories in bite-sized narratives.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-black">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-black">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-black">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-black">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-black font-bold text-lg mb-4">Navigation</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-600 hover:text-black transition-colors">Home</a></li>
+                        <li><a href="#stories" class="text-gray-600 hover:text-black transition-colors">Stories</a></li>
+                        <li><a href="#trending" class="text-gray-600 hover:text-black transition-colors">Trending</a></li>
+                        <li><a href="#genres" class="text-gray-600 hover:text-black transition-colors">Genres</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-black font-bold text-lg mb-4">Legal</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-black transition-colors">Copyright</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 pt-6 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2025 Micro Anime. All rights reserved. This site is not affiliated with any anime studios.
+                </p>
+            </div>
+        </div>
+    </footer>
+
     <!-- Story Modal -->
-    <div id="storyModal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h3 id="modalTitle" class="text-2xl font-bold">Story Title</h3>
-                <button id="closeModal" class="text-gray-500 hover:text-gray-700">
+    <div id="storyModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden border border-gray-200">
+            <div class="p-6 border-b border-gray-200 flex justify-between items-center">
+                <h3 id="modalTitle" class="text-2xl font-bold text-black">Story Title</h3>
+                <button id="closeModal" class="text-gray-500 hover:text-black">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
-            <div id="modalContent" class="p-6 overflow-y-auto max-h-[60vh]">
+            <div id="modalContent" class="p-6 overflow-y-auto max-h-[60vh] text-gray-700">
                 <p>Loading story...</p>
             </div>
         </div>
     </div>
 
-    <!-- Firebase Scripts -->
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js"></script>
-    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js"></script>
-    
     <!-- Custom Scripts -->
     <script type="module" src="js/auth.js"></script>
     <script type="module" src="js/stories.js"></script>
     <script type="module" src="js/dashboard.js"></script>
+    
+    <script type="module">
+        // Check authentication state and update UI
+        import { auth, onAuthStateChanged } from './js/firebase/config.js';
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginBtn = document.getElementById('loginBtn');
+            
+            onAuthStateChanged(auth, (user) => {
+                if (user) {
+                    // User is signed in
+                    if (loginBtn) {
+                        loginBtn.innerHTML = '<i class="fas fa-user mr-2"></i>Dashboard';
+                        loginBtn.href = 'dashboard.html';
+                    }
+                } else {
+                    // User is signed out
+                    if (loginBtn) {
+                        loginBtn.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>Login';
+                        loginBtn.href = 'login.html';
+                    }
+                }
+            });
+            
+            // Featured Stories Carousel
+            const storiesContainer = document.getElementById('storiesContainer');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const storyCards = document.querySelectorAll('#storiesContainer > div').length;
+            const cardWidth = document.querySelector('#storiesContainer > div').offsetWidth;
+            let currentIndex = 0;
+            
+            // Next button click
+            nextBtn.addEventListener('click', () => {
+                if (currentIndex < storyCards - 6) {
+                    currentIndex++;
+                    updateCarousel();
+                }
+            });
+            
+            // Previous button click
+            prevBtn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateCarousel();
+                }
+            });
+            
+            function updateCarousel() {
+                const translateX = -currentIndex * cardWidth;
+                storiesContainer.style.transform = `translateX(${translateX}px)`;
+                
+                // Hide/show buttons based on position
+                prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
+                nextBtn.style.display = currentIndex >= storyCards - 6 ? 'none' : 'block';
+            }
+            
+            // Romance Category Carousel
+            const romanceContainer = document.getElementById('romanceContainer');
+            const romancePrevBtn = document.getElementById('romancePrevBtn');
+            const romanceNextBtn = document.getElementById('romanceNextBtn');
+            const romanceCards = document.querySelectorAll('#romanceContainer > div').length;
+            let romanceIndex = 0;
+            
+            romanceNextBtn.addEventListener('click', () => {
+                if (romanceIndex < romanceCards - 6) {
+                    romanceIndex++;
+                    updateRomanceCarousel();
+                }
+            });
+            
+            romancePrevBtn.addEventListener('click', () => {
+                if (romanceIndex > 0) {
+                    romanceIndex--;
+                    updateRomanceCarousel();
+                }
+            });
+            
+            function updateRomanceCarousel() {
+                const translateX = -romanceIndex * cardWidth;
+                romanceContainer.style.transform = `translateX(${translateX}px)`;
+                
+                // Hide/show buttons based on position
+                romancePrevBtn.style.display = romanceIndex === 0 ? 'none' : 'block';
+                romanceNextBtn.style.display = romanceIndex >= romanceCards - 6 ? 'none' : 'block';
+            }
+            
+            // Open Minded Category Carousel
+            const openMindedContainer = document.getElementById('openMindedContainer');
+            const openMindedPrevBtn = document.getElementById('openMindedPrevBtn');
+            const openMindedNextBtn = document.getElementById('openMindedNextBtn');
+            const openMindedCards = document.querySelectorAll('#openMindedContainer > div').length;
+            let openMindedIndex = 0;
+            
+            openMindedNextBtn.addEventListener('click', () => {
+                if (openMindedIndex < openMindedCards - 6) {
+                    openMindedIndex++;
+                    updateOpenMindedCarousel();
+                }
+            });
+            
+            openMindedPrevBtn.addEventListener('click', () => {
+                if (openMindedIndex > 0) {
+                    openMindedIndex--;
+                    updateOpenMindedCarousel();
+                }
+            });
+            
+            function updateOpenMindedCarousel() {
+                const translateX = -openMindedIndex * cardWidth;
+                openMindedContainer.style.transform = `translateX(${translateX}px)`;
+                
+                // Hide/show buttons based on position
+                openMindedPrevBtn.style.display = openMindedIndex === 0 ? 'none' : 'block';
+                openMindedNextBtn.style.display = openMindedIndex >= openMindedCards - 6 ? 'none' : 'block';
+            }
+            
+            // Newly Released Category Carousel
+            const newlyReleasedContainer = document.getElementById('newlyReleasedContainer');
+            const newlyReleasedPrevBtn = document.getElementById('newlyReleasedPrevBtn');
+            const newlyReleasedNextBtn = document.getElementById('newlyReleasedNextBtn');
+            const newlyReleasedCards = document.querySelectorAll('#newlyReleasedContainer > div').length;
+            let newlyReleasedIndex = 0;
+            
+            newlyReleasedNextBtn.addEventListener('click', () => {
+                if (newlyReleasedIndex < newlyReleasedCards - 6) {
+                    newlyReleasedIndex++;
+                    updateNewlyReleasedCarousel();
+                }
+            });
+            
+            newlyReleasedPrevBtn.addEventListener('click', () => {
+                if (newlyReleasedIndex > 0) {
+                    newlyReleasedIndex--;
+                    updateNewlyReleasedCarousel();
+                }
+            });
+            
+            function updateNewlyReleasedCarousel() {
+                const translateX = -newlyReleasedIndex * cardWidth;
+                newlyReleasedContainer.style.transform = `translateX(${translateX}px)`;
+                
+                // Hide/show buttons based on position
+                newlyReleasedPrevBtn.style.display = newlyReleasedIndex === 0 ? 'none' : 'block';
+                newlyReleasedNextBtn.style.display = newlyReleasedIndex >= newlyReleasedCards - 6 ? 'none' : 'block';
+            }
+            
+            // Hide navigation buttons on mobile
+            function handleResize() {
+                if (window.innerWidth < 768) {
+                    prevBtn.style.display = 'none';
+                    nextBtn.style.display = 'none';
+                    romancePrevBtn.style.display = 'none';
+                    romanceNextBtn.style.display = 'none';
+                    openMindedPrevBtn.style.display = 'none';
+                    openMindedNextBtn.style.display = 'none';
+                    newlyReleasedPrevBtn.style.display = 'none';
+                    newlyReleasedNextBtn.style.display = 'none';
+                } else {
+                    prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
+                    nextBtn.style.display = currentIndex >= storyCards - 6 ? 'none' : 'block';
+                    romancePrevBtn.style.display = romanceIndex === 0 ? 'none' : 'block';
+                    romanceNextBtn.style.display = romanceIndex >= romanceCards - 6 ? 'none' : 'block';
+                    openMindedPrevBtn.style.display = openMindedIndex === 0 ? 'none' : 'block';
+                    openMindedNextBtn.style.display = openMindedIndex >= openMindedCards - 6 ? 'none' : 'block';
+                    newlyReleasedPrevBtn.style.display = newlyReleasedIndex === 0 ? 'none' : 'block';
+                    newlyReleasedNextBtn.style.display = newlyReleasedIndex >= newlyReleasedCards - 6 ? 'none' : 'block';
+                }
+            }
+            
+            window.addEventListener('resize', handleResize);
+            handleResize(); // Initial check
+        });
+    </script>
 </body>
 </html>

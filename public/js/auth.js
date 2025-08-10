@@ -1,17 +1,27 @@
 // Authentication Module for Anime Wings
-import { auth, db } from '../src/firebase/config.js';
 import { 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword, 
-    signOut, 
-    onAuthStateChanged 
-} from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js';
-import { doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js';
+    auth, 
+    db,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged,
+    GoogleAuthProvider,
+    signInWithPopup,
+    doc,
+    setDoc,
+    getDoc
+} from './firebase/config.js';
 
 class AuthManager {
     constructor() {
         this.currentUser = null;
-        this.init();
+        // Wait for DOM to be loaded before initializing
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.init());
+        } else {
+            this.init();
+        }
     }
 
     init() {
@@ -37,15 +47,28 @@ class AuthManager {
         const dashboardLoginBtn = document.getElementById('dashboardLoginBtn');
 
         if (loginBtn) {
-            loginBtn.addEventListener('click', () => this.showAuthModal());
+            console.log('Login button found:', loginBtn);
+            loginBtn.addEventListener('click', (e) => {
+                // Check if user is logged in by looking at button text
+                if (loginBtn.innerHTML.includes('Dashboard')) {
+                    // User is logged in, go to dashboard
+                    window.location.href = 'dashboard.html';
+                } else {
+                    // User is not logged in, go to login page
+                    console.log('Login button clicked, redirecting to login page');
+                    window.location.href = 'login.html';
+                }
+            });
         }
 
         if (dashboardLoginBtn) {
-            dashboardLoginBtn.addEventListener('click', () => this.showAuthModal());
+            dashboardLoginBtn.addEventListener('click', () => {
+                window.location.href = 'login.html';
+            });
         }
     }
 
-    async registerUser(email, password, username) {
+    async registerUser(email, password) {
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
@@ -53,33 +76,111 @@ class AuthManager {
             // Create user document in Firestore
             await setDoc(doc(db, 'users', user.uid), {
                 email: user.email,
-                username: username,
+                displayName: email.split('@')[0],
+                photoURL: null,
                 createdAt: new Date().toISOString(),
                 readingProgress: {},
                 favoriteStories: [],
                 totalReadTime: 0
             });
 
+            // Load user data
+            await this.loadUserData(user.uid);
+            
             return { success: true, user };
         } catch (error) {
             console.error('Registration error:', error);
-            return { success: false, error: error.message };
+            let errorMessage = error.message;
+            
+            // Provide more user-friendly error messages
+            if (error.code === 'auth/email-already-in-use') {
+                errorMessage = 'This email is already registered. Please try logging in instead.';
+            } else if (error.code === 'auth/invalid-email') {
+                errorMessage = 'Please enter a valid email address.';
+            } else if (error.code === 'auth/weak-password') {
+                errorMessage = 'Password should be at least 6 characters.';
+            }
+            
+            return { success: false, error: errorMessage };
         }
     }
 
     async loginUser(email, password) {
         try {
             const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            // Load user data
+            await this.loadUserData(userCredential.user.uid);
             return { success: true, user: userCredential.user };
         } catch (error) {
             console.error('Login error:', error);
-            return { success: false, error: error.message };
+            let errorMessage = error.message;
+            
+            // Provide more user-friendly error messages
+            if (error.code === 'auth/user-not-found') {
+                errorMessage = 'No account found with this email. Please check your email or sign up.';
+            } else if (error.code === 'auth/wrong-password') {
+                errorMessage = 'Incorrect password. Please try again.';
+            } else if (error.code === 'auth/invalid-email') {
+                errorMessage = 'Please enter a valid email address.';
+            } else if (error.code === 'auth/user-disabled') {
+                errorMessage = 'This account has been disabled.';
+            }
+            
+            return { success: false, error: errorMessage };
+        }
+    }
+
+    async signInWithGoogle() {
+        try {
+            const provider = new GoogleAuthProvider();
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            
+            // Check if user exists in our database, if not create them
+            const userDoc = await getDoc(doc(db, 'users', user.uid));
+            if (!userDoc.exists()) {
+                // Create user document in Firestore
+                await setDoc(doc(db, 'users', user.uid), {
+                    email: user.email,
+                    displayName: user.displayName || user.email.split('@')[0],
+                    photoURL: user.photoURL || null,
+                    createdAt: new Date().toISOString(),
+                    readingProgress: {},
+                    favoriteStories: [],
+                    totalReadTime: 0
+                });
+            } else {
+                // Update user document with latest info from Google
+                await updateDoc(doc(db, 'users', user.uid), {
+                    displayName: user.displayName || user.email.split('@')[0],
+                    photoURL: user.photoURL || null
+                });
+            }
+            
+            // Load user data
+            await this.loadUserData(user.uid);
+            return { success: true, user };
+        } catch (error) {
+            console.error('Google sign-in error:', error);
+            let errorMessage = error.message;
+            
+            // Provide more user-friendly error messages
+            if (error.code === 'auth/account-exists-with-different-credential') {
+                errorMessage = 'An account already exists with this email. Please sign in using your email and password.';
+            } else if (error.code === 'auth/popup-blocked') {
+                errorMessage = 'Sign-in popup was blocked. Please allow popups for this site.';
+            }
+            
+            return { success: false, error: errorMessage };
         }
     }
 
     async logoutUser() {
         try {
             await signOut(auth);
+            this.currentUser = null;
+            this.userData = null;
+            this.updateUI(false);
             return { success: true };
         } catch (error) {
             console.error('Logout error:', error);
@@ -103,173 +204,26 @@ class AuthManager {
     updateUI(isLoggedIn) {
         const loginBtn = document.getElementById('loginBtn');
         const dashboardSection = document.getElementById('dashboardSection');
-        const dashboardContent = document.getElementById('dashboardContent');
 
         if (isLoggedIn) {
             if (loginBtn) {
-                loginBtn.textContent = 'Dashboard';
-                loginBtn.onclick = () => {
-                    document.getElementById('dashboardSection').classList.remove('hidden');
-                    document.getElementById('dashboardSection').scrollIntoView({ behavior: 'smooth' });
-                };
-            }
-
-            if (dashboardSection) {
-                dashboardSection.classList.remove('hidden');
-                this.renderDashboard();
+                loginBtn.innerHTML = '<i class="fas fa-user mr-2"></i>Dashboard';
             }
         } else {
             if (loginBtn) {
-                loginBtn.textContent = 'Login';
-                loginBtn.onclick = () => this.showAuthModal();
-            }
-
-            if (dashboardSection) {
-                dashboardSection.classList.add('hidden');
+                loginBtn.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>Login';
             }
         }
     }
 
     renderDashboard() {
-        const dashboardContent = document.getElementById('dashboardContent');
-        if (!dashboardContent || !this.currentUser) return;
-
-        dashboardContent.innerHTML = `
-            <div class="text-center">
-                <div class="w-24 h-24 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span class="text-3xl text-white">${this.userData?.username?.charAt(0)?.toUpperCase() || '👤'}</span>
-                </div>
-                <h3 class="text-2xl font-semibold text-gray-800 mb-2">Welcome, ${this.userData?.username || 'User'}!</h3>
-                <p class="text-gray-600 mb-6">Your reading journey continues...</p>
-                
-                <div class="grid md:grid-cols-3 gap-6 max-w-2xl mx-auto mb-6">
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
-                        <div class="text-3xl font-bold text-purple-600">${Object.keys(this.userData?.readingProgress || {}).length}</div>
-                        <div class="text-sm text-gray-600">Stories Read</div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
-                        <div class="text-3xl font-bold text-pink-600">${this.userData?.totalReadTime || 0} min</div>
-                        <div class="text-sm text-gray-600">Total Read Time</div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
-                        <div class="text-3xl font-bold text-blue-600">${this.userData?.favoriteStories?.length || 0}</div>
-                        <div class="text-sm text-gray-600">Favorites</div>
-                    </div>
-                </div>
-
-                <button onclick="authManager.logoutUser()" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-full font-semibold hover:bg-gray-300 transition-all duration-200">
-                    Sign Out
-                </button>
-            </div>
-        `;
+        // Dashboard rendering is now handled in the HTML files
+        console.log('Dashboard rendering handled in HTML files');
     }
 
     showAuthModal() {
-        // Create modal if it doesn't exist
-        let modal = document.getElementById('authModal');
-        if (!modal) {
-            modal = document.createElement('div');
-            modal.id = 'authModal';
-            modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4';
-            modal.innerHTML = `
-                <div class="bg-white rounded-2xl p-8 max-w-md w-full">
-                    <h2 class="text-2xl font-bold text-center mb-6">Welcome to Anime Wings</h2>
-                    
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" id="authEmail" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="your@email.com">
-                        </div>
-                        
-                        <div>
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Password</label>
-                            <input type="password" id="authPassword" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="••••••••">
-                        </div>
-                        
-                        <div id="usernameField" class="hidden">
-                            <label class="block text-sm font-medium text-gray-700 mb-2">Username</label>
-                            <input type="text" id="authUsername" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Your username">
-                        </div>
-                        
-                        <button id="authSubmit" class="w-full py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-200">
-                            Sign In
-                        </button>
-                        
-                        <button id="authToggle" class="w-full text-center text-purple-600 hover:text-purple-700 text-sm">
-                            Don't have an account? Sign up
-                        </button>
-                    </div>
-                    
-                    <button id="closeAuthModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-            `;
-            document.body.appendChild(modal);
-            this.setupAuthModalEvents(modal);
-        }
-        
-        modal.classList.remove('hidden');
-    }
-
-    setupAuthModalEvents(modal) {
-        const emailInput = modal.querySelector('#authEmail');
-        const passwordInput = modal.querySelector('#authPassword');
-        const usernameInput = modal.querySelector('#authUsername');
-        const submitBtn = modal.querySelector('#authSubmit');
-        const toggleBtn = modal.querySelector('#authToggle');
-        const closeBtn = modal.querySelector('#closeAuthModal');
-        const usernameField = modal.querySelector('#usernameField');
-
-        let isLoginMode = true;
-
-        toggleBtn.addEventListener('click', () => {
-            isLoginMode = !isLoginMode;
-            submitBtn.textContent = isLoginMode ? 'Sign In' : 'Sign Up';
-            toggleBtn.textContent = isLoginMode ? "Don't have an account? Sign up" : 'Already have an account? Sign in';
-            usernameField.classList.toggle('hidden', isLoginMode);
-        });
-
-        submitBtn.addEventListener('click', async () => {
-            const email = emailInput.value.trim();
-            const password = passwordInput.value;
-            const username = usernameInput?.value.trim();
-
-            if (!email || !password) {
-                alert('Please fill in all fields');
-                return;
-            }
-
-            if (!isLoginMode && !username) {
-                alert('Please enter a username');
-                return;
-            }
-
-            let result;
-            if (isLoginMode) {
-                result = await this.loginUser(email, password);
-            } else {
-                result = await this.registerUser(email, password, username);
-            }
-
-            if (result.success) {
-                modal.classList.add('hidden');
-            } else {
-                alert(result.error);
-            }
-        });
-
-        closeBtn.addEventListener('click', () => {
-            modal.classList.add('hidden');
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.classList.add('hidden');
-            }
-        });
+        // Redirect to login page instead of showing modal
+        window.location.href = 'login.html';
     }
 }
 
