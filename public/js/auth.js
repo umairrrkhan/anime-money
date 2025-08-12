@@ -10,35 +10,78 @@ import {
     signInWithPopup,
     doc,
     setDoc,
-    getDoc
+    getDoc,
+    updateDoc,
+    arrayUnion
 } from './firebase/config.js';
 
 class AuthManager {
     constructor() {
         this.currentUser = null;
-        // Wait for DOM to be loaded before initializing
+        this.authInitialized = false;
+        this.authStateCallbacks = [];
+        this.authStateResolved = false;
+        
+        console.log('AuthManager initialized');
+        
+        // Initialize auth state listener immediately (don't wait for DOM)
+        this.initAuthListener();
+        
+        // Wait for DOM to be loaded before setting up event listeners
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', () => this.init());
+            document.addEventListener('DOMContentLoaded', () => this.initEventListeners());
         } else {
-            this.init();
+            this.initEventListeners();
         }
     }
 
-    init() {
+    initAuthListener() {
         // Check authentication state
         onAuthStateChanged(auth, async (user) => {
+            console.log('Auth state changed. User:', user);
+            this.authInitialized = true;
+            this.authStateResolved = true;
+            
             if (user) {
                 this.currentUser = user;
                 await this.loadUserData(user.uid);
                 this.updateUI(true);
+                console.log('User is logged in:', user);
             } else {
                 this.currentUser = null;
                 this.updateUI(false);
+                console.log('User is logged out');
             }
+            
+            // Call any waiting callbacks
+            this.authStateCallbacks.forEach(callback => callback());
+            this.authStateCallbacks = [];
         });
+    }
 
+    initEventListeners() {
         // Event listeners
         this.setupEventListeners();
+    }
+    
+    // Method to wait for auth state to be determined
+    waitForAuthState() {
+        console.log('Waiting for auth state to be determined...');
+        console.log('Auth initialized:', this.authInitialized);
+        console.log('Auth state resolved:', this.authStateResolved);
+        console.log('Current user:', this.currentUser);
+        
+        // If auth state has already been resolved, resolve immediately
+        if (this.authStateResolved) {
+            console.log('Auth state already resolved, resolving immediately');
+            return Promise.resolve();
+        }
+        
+        // Otherwise, return a promise that will be resolved when auth state is determined
+        console.log('Creating new promise to wait for auth state');
+        return new Promise(resolve => {
+            this.authStateCallbacks.push(resolve);
+        });
     }
 
     setupEventListeners() {
@@ -177,10 +220,19 @@ class AuthManager {
 
     async logoutUser() {
         try {
+            console.log('Logging out user...');
             await signOut(auth);
+            console.log('User signed out successfully');
             this.currentUser = null;
             this.userData = null;
             this.updateUI(false);
+            
+            // Redirect to login page after logout
+            if (window.location.pathname !== '/login.html' && window.location.pathname !== '/register.html') {
+                window.location.href = 'login.html';
+            }
+            
+            console.log('Logout completed');
             return { success: true };
         } catch (error) {
             console.error('Logout error:', error);
@@ -202,16 +254,19 @@ class AuthManager {
     }
 
     updateUI(isLoggedIn) {
+        console.log('Updating UI. Is logged in:', isLoggedIn);
         const loginBtn = document.getElementById('loginBtn');
         const dashboardSection = document.getElementById('dashboardSection');
 
         if (isLoggedIn) {
             if (loginBtn) {
                 loginBtn.innerHTML = '<i class="fas fa-user mr-2"></i>Dashboard';
+                console.log('Updated login button to Dashboard');
             }
         } else {
             if (loginBtn) {
                 loginBtn.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i>Login';
+                console.log('Updated login button to Login');
             }
         }
     }

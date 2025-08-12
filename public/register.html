@@ -30,8 +30,8 @@
             <nav class="flex items-center justify-between h-16">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-xl">MA</span>
+                    <div class="w-10 h-10">
+                        <img src="assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
                     </div>
                     <span class="text-black font-bold text-xl">Micro Anime</span>
                 </div>
@@ -68,11 +68,15 @@
     <section class="min-h-screen flex items-center justify-center py-20 px-4">
         <div class="max-w-md w-full bg-gray-50 rounded-2xl p-8 border border-gray-200">
             <div class="text-center mb-8">
-                <div class="w-16 h-16 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <span class="text-white font-bold text-xl">MA</span>
+                <div class="w-16 h-16 mx-auto mb-4">
+                    <img src="assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
                 </div>
                 <h2 class="text-2xl font-bold text-black">Create Account</h2>
                 <p class="text-gray-600">Join Micro Anime to track your reading progress</p>
+            </div>
+            
+            <!-- Error Message Container -->
+            <div id="errorMessage" class="hidden mb-4 p-3 bg-red-100 text-red-800 rounded-lg text-sm">
             </div>
             
             <div class="space-y-4">
@@ -121,10 +125,10 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                 <div>
                     <div class="flex items-center space-x-3 mb-6">
-                        <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center">
-                            <span class="text-white font-bold text-xl">AW</span>
+                        <div class="w-10 h-10">
+                            <img src="assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
                         </div>
-                        <span class="text-black font-bold text-xl">Anime Wings</span>
+                        <span class="text-black font-bold text-xl">Micro Anime</span>
                     </div>
                     <p class="text-gray-600 mb-4">
                         Discover beautiful micro anime stories in bite-sized narratives.
@@ -180,16 +184,13 @@
         import authManager from './js/auth.js';
         
         // Wait for DOM to be loaded
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
             // Check if user is already authenticated
-            import { auth, onAuthStateChanged } from './js/firebase/config.js';
-            
-            onAuthStateChanged(auth, (user) => {
-                if (user) {
-                    // User is already signed in, redirect to dashboard
-                    window.location.href = 'dashboard.html';
-                }
-            });
+            if (authManager.currentUser) {
+                // User is already signed in, redirect to dashboard
+                window.location.href = 'dashboard.html';
+                return;
+            }
             
             const emailInput = document.getElementById('authEmail');
             const passwordInput = document.getElementById('authPassword');
@@ -201,25 +202,66 @@
                 const password = passwordInput.value;
                 
                 if (!email || !password) {
-                    alert('Please fill in all fields');
+                    // Show error message in a professional way
+                    const errorMessageEl = document.getElementById('errorMessage');
+                    if (errorMessageEl) {
+                        errorMessageEl.textContent = 'Please fill in all fields';
+                        errorMessageEl.classList.remove('hidden');
+                    }
                     return;
+                }
+                
+                // Show loading state
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<span class="loading loading-spinner loading-sm mr-2"></span>Creating account...';
+                submitBtn.disabled = true;
+                
+                // Hide any previous error messages
+                const errorMessageEl = document.getElementById('errorMessage');
+                if (errorMessageEl) {
+                    errorMessageEl.classList.add('hidden');
                 }
                 
                 const result = await authManager.registerUser(email, password);
                 if (result.success) {
                     window.location.href = 'dashboard.html';
                 } else {
-                    alert(result.error);
+                    // Show error message in a professional way
+                    if (errorMessageEl) {
+                        errorMessageEl.textContent = result.error;
+                        errorMessageEl.classList.remove('hidden');
+                    }
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
                 }
             });
             
             if (googleSignInBtn) {
                 googleSignInBtn.addEventListener('click', async () => {
+                    // Show loading state
+                    const originalText = googleSignInBtn.innerHTML;
+                    googleSignInBtn.innerHTML = '<span class="loading loading-spinner loading-sm mr-2"></span>Signing up...';
+                    googleSignInBtn.disabled = true;
+                    
+                    // Hide any previous error messages
+                    const errorMessageEl = document.getElementById('errorMessage');
+                    if (errorMessageEl) {
+                        errorMessageEl.classList.add('hidden');
+                    }
+                    
                     const result = await authManager.signInWithGoogle();
                     if (result.success) {
                         window.location.href = 'dashboard.html';
                     } else {
-                        alert(result.error);
+                        // Show error message in a professional way
+                        if (errorMessageEl) {
+                            errorMessageEl.textContent = result.error;
+                            errorMessageEl.classList.remove('hidden');
+                        }
+                        // Reset button
+                        googleSignInBtn.innerHTML = originalText;
+                        googleSignInBtn.disabled = false;
                     }
                 });
             }

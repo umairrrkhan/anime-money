@@ -3,11 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Micro Anime - Micro Anime Stories</title>
+    <title>Micro Anime - Bite-sized Anime Stories</title>
     <meta
       name="description"
       content="Discover beautiful micro anime stories in a seamless experience"
     />
+    <link rel="icon" type="image/png" href="assets/logo.png">
 
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -43,102 +44,104 @@
     <script type="module" src="js/auth.js"></script>
   </head>
   <body class="bg-white text-black font-inter overflow-x-hidden">
-    <!-- Modern Anime Header -->
-    <header class="w-full z-50 bg-white/95 backdrop-blur-md">
-      <div class="px-4 border-b-1 border-gray-200">
-        <nav class="flex items-center justify-between py-4">
+    <!-- Webtoons-inspired Header -->
+    <header class="w-full z-50 bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4">
+        <nav class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <div class="flex gap-8 items-center">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center max-lg:w-15 max-lg:h-15"
-            >
-              <span class="text-white font-bold text-2xl">MA</span>
+          <div class="flex items-center">
+            <div class="w-10 h-10 mr-3">
+              <img src="assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
             </div>
-
-            <!-- Navigation Links -->
-            <!-- <div class="hidden md:flex items-center space-x-8">
-                    <a href="#stories" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
-                        <i class="fas fa-book-open mr-2"></i>Stories
-                    </a>
-                    <a href="#trending" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
-                        <i class="fas fa-fire mr-2"></i>Trending
-                    </a>
-                    <a href="#genres" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
-                        <i class="fas fa-tags mr-2"></i>Genres
-                    </a>
-                    <a href="login.html" id="loginBtn" class="px-4 py-2 bg-black text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200">
-                        <i class="fas fa-sign-in-alt mr-2"></i>Login
-                    </a>
-                </div> -->
-
-            <div
-              class="font-bold text-lg flex gap-8 pr-8 border-r border-solid border-gray-200 max-lg:hidden"
-            >
-              <a href="#" class="text-black"> ORIGINALS </a>
-              <a href="#" class="nav-link"> CATEGORIES </a>
-              <a href="#" class="nav-link"> RANKINGS </a>
-              <a href="#" class="nav-link"> CANVAS </a>
-            </div>
+            <span class="text-black font-bold text-xl">MICRO ANIME</span>
           </div>
 
-          <div class="font-semibold text-sm flex gap-2 items-center max-lg:hidden">
-            <a href="#">ANIME-MONEY SHOP</a>
-            <a href="#">Creators 101</a>
-            <button class="bg-black rounded-2xl text-white px-4 py-2">
-              Publish
-            </button>
-            <button
-              class="bg-gray-100 rounded-2xl text-black px-4 py-2 hover:bg-gray-200"
-            >
-              Login
-            </button>
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#stories" class="text-gray-700 hover:text-black font-medium">ORIGINALS</a>
+            <a href="#trending" class="text-gray-700 hover:text-black font-medium">TRENDING</a>
+            <a href="#romance" class="text-gray-700 hover:text-black font-medium">GENRES</a>
+            <a href="#newly-released" class="text-gray-700 hover:text-black font-medium">NEW</a>
           </div>
 
-          <!-- Mobile Menu -->
-          <div class="lg:hidden">
+          <!-- User Actions -->
+          <div class="flex items-center space-x-4">
+            <button id="loginBtn" class="bg-black text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors">
+              <i class="fas fa-sign-in-alt mr-2"></i>Login
+            </button>
+            <!-- User profile dropdown (hidden by default) -->
+            <div id="userProfile" class="hidden relative">
+              <button id="userMenuBtn" class="flex items-center gap-2 bg-gray-100 rounded-full px-3 py-2 hover:bg-gray-200">
+                <div class="w-6 h-6 rounded-full bg-gray-300 overflow-hidden">
+                  <img id="userAvatar" src="https://ui-avatars.com/api/?name=User&background=random&color=fff" alt="User" class="w-full h-full object-cover">
+                </div>
+                <i class="fas fa-chevron-down text-xs"></i>
+              </button>
+              <!-- Dropdown menu -->
+              <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 hidden z-50">
+                <div class="p-4 border-b border-gray-200">
+                  <p class="text-black font-medium truncate" id="dropdownUserEmail">user@example.com</p>
+                </div>
+                <div class="py-2">
+                  <a href="dashboard.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-black">
+                    <i class="fas fa-user mr-2"></i>Profile
+                  </a>
+                  <a href="index.html" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-black">
+                    <i class="fas fa-home mr-2"></i>Home
+                  </a>
+                  <button id="logoutBtn" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-black">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Sign Out
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Search Icon -->
             <button class="text-gray-600 hover:text-black">
-              <svg
-                class="w-10 h-10"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                ></path>
-              </svg>
+              <i class="fas fa-search text-xl"></i>
+            </button>
+            
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-gray-600 hover:text-black">
+              <i class="fas fa-bars text-xl"></i>
             </button>
           </div>
         </nav>
       </div>
     </header>
-    <div class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md px-32 border-b-[1px] border-solid border-gray-200 shadow-xs max-md:px-4">
-      <div class="flex items-center gap-8 font-medium text-black max-md:flex-wrap max-md:gap-2">
-        <a href="#" class="border-b-2 border-solid border-black py-4">MON</a>
-        <a href="#">TUE</a>
-        <a href="#">WED</a>
-        <a href="#">THUR</a>
-        <a href="#">FRI</a>
-        <a href="#">SAT</a>
-        <a href="#">SUN</a>
-        <a href="#">COMPLETED</a>
+    
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-purple-900 to-blue-800 text-white py-16 md:py-24">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            Discover Amazing Micro Anime Stories
+          </h1>
+          <p class="text-xl mb-8 text-purple-100">
+            Bite-sized anime stories for the modern viewer. Read anywhere, anytime.
+          </p>
+          <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+            <button class="bg-white text-black px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors">
+              Start Reading
+            </button>
+            <button class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white/10 transition-colors">
+              View Originals
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
 
     <!-- Featured Stories Section -->
-    <section id="stories" class="py-8 px-8 pl-32 bg-white max-lg:pl-8">
-      <div class="mx-auto">
-        <div class="flex justify-between items-center mb-2 text-sm">
-          
-          <p class="text-gray-500"><span class="text-black">111</span> series</p>
-
-          <div>
-            <a href="#" class="nav-link text-black">by Popularity</a>
-            <a href="#" class="nav-link">by Likes</a>
-            <a href="#" class="nav-link">by Date</a>
+    <section id="stories" class="py-12 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold text-black">Featured Stories</h2>
+          <div class="flex space-x-4">
+            <a href="#" class="text-gray-600 hover:text-black font-medium">by Popularity</a>
+            <a href="#" class="text-gray-600 hover:text-black font-medium">by Likes</a>
+            <a href="#" class="text-gray-600 hover:text-black font-medium">by Date</a>
           </div>
         </div>
 
@@ -151,14 +154,14 @@
               class="flex transition-transform duration-500 ease-in-out"
             >
               <!-- Story 1 -->
-              <div class="flex-shrink-0 w-1/6 p-2 max-md:w-2/6">
+              <div class="flex-shrink-0 w-1/6 p-2">
                 <div class="group cursor-pointer">
                   <div class="relative">
-                    <div class="overflow-hidden rounded-lg">
+                    <div class="aspect-[3/4] overflow-hidden rounded-lg">
                       <img
                         src="assets/1754822716.png"
                         alt="The Last Sakura"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -182,14 +185,14 @@
               </div>
 
               <!-- Story 2 -->
-              <div class="flex-shrink-0 w-1/6 p-2 max-md:w-2/6">
+              <div class="flex-shrink-0 w-1/6 p-2">
                 <div class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden rounded-lg">
                       <img
                         src="assets/1754822762.png"
                         alt="Guardian's Path"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -213,14 +216,14 @@
               </div>
 
               <!-- Story 3 -->
-              <div class="flex-shrink-0 w-1/6 p-2 max-md:w-2/6">
+              <div class="flex-shrink-0 w-1/6 p-2">
                 <div class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden rounded-lg">
                       <img
                         src="assets/1754822821.png"
                         alt="Whispers of Spring"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -244,14 +247,14 @@
               </div>
 
               <!-- Story 4 -->
-              <div class="flex-shrink-0 w-1/6 p-2 max-md:w-2/6">
+              <div class="flex-shrink-0 w-1/6 p-2">
                 <div class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden rounded-lg">
                       <img
                         src="assets/1754822875.png"
                         alt="Moonlit Serenade"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -275,14 +278,14 @@
               </div>
 
               <!-- Story 5 -->
-              <div class="flex-shrink-0 w-1/6 p-2 max-md:w-2/6">
+              <div class="flex-shrink-0 w-1/6 p-2">
                 <div class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden rounded-lg">
                       <img
                         src="assets/1754823013.png"
                         alt="Digital Dreams"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -306,14 +309,14 @@
               </div>
 
               <!-- Story 6 -->
-              <div class="flex-shrink-0 w-1/6 p-2 max-md:w-2/6">
+              <div class="flex-shrink-0 w-1/6 p-2">
                 <div class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden rounded-lg">
                       <img
                         src="assets/1754823073.png"
                         alt="Ocean's Secret"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -337,14 +340,14 @@
               </div>
               
               <!-- Story 7 -->
-              <div class="flex-shrink-0 w-1/6 p-2 max-md:w-2/6">
+              <div class="flex-shrink-0 w-1/6 p-2">
                 <div class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden rounded-lg">
                       <img
                         src="assets/1754823073.png"
                         alt="Ocean's Secret"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -372,28 +375,31 @@
           <!-- Carousel Navigation -->
           <button
             id="prevBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
           >
-            <i class="fas fa-chevron-left text-black text-sm"></i>
+            <i class="fas fa-chevron-left text-black"></i>
           </button>
           <button
             id="nextBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
           >
-            <i class="fas fa-chevron-right text-black text-sm"></i>
+            <i class="fas fa-chevron-right text-black"></i>
           </button>
         </div>
       </div>
     </section>
 
     <!-- Trending Section -->
-    <section id="trending" class="py-16 px-4 bg-gray-50">
-      <div class="max-w-7xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-bold text-black mb-10">
-          Trending Now
-        </h2>
+    <section id="trending" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold text-black">Trending Now</h2>
+          <a href="#" class="text-gray-600 hover:text-black font-medium flex items-center">
+            View All <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
 
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           <!-- Trending Story 1 -->
           <div class="group cursor-pointer">
             <div class="relative">
@@ -401,8 +407,11 @@
                 <img
                   src="assets/1754823196.png"
                   alt="The Last Sakura"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
+              </div>
+              <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                HOT
               </div>
             </div>
             <div class="mt-3">
@@ -425,8 +434,11 @@
                 <img
                   src="assets/1754823273.png"
                   alt="Guardian's Path"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
+              </div>
+              <div class="absolute top-2 right-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                HOT
               </div>
             </div>
             <div class="mt-3">
@@ -449,8 +461,11 @@
                 <img
                   src="assets/1754822716.png"
                   alt="The Last Sakura"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
+              </div>
+              <div class="absolute top-2 right-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                TRENDING
               </div>
             </div>
             <div class="mt-3">
@@ -473,8 +488,11 @@
                 <img
                   src="assets/1754822821.png"
                   alt="Whispers of Spring"
-                  class="w-full h-full object-cover"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
+              </div>
+              <div class="absolute top-2 right-2 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                POPULAR
               </div>
             </div>
             <div class="mt-3">
@@ -489,18 +507,45 @@
               </div>
             </div>
           </div>
+
+          <!-- Trending Story 5 -->
+          <div class="group cursor-pointer">
+            <div class="relative">
+              <div class="aspect-[3/4] overflow-hidden rounded-lg">
+                <img
+                  src="assets/1754822875.png"
+                  alt="Moonlit Serenade"
+                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+              </div>
+              <div class="absolute top-2 right-2 bg-purple-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                NEW
+              </div>
+            </div>
+            <div class="mt-3">
+              <h4 class="text-sm font-bold text-black truncate">
+                Moonlit Serenade
+              </h4>
+              <div class="flex flex-wrap gap-1 mt-1">
+                <span
+                  class="text-xs bg-blue-100 text-blue-800 px-1 py-0.5 rounded"
+                  >Music</span
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Romance Category Section -->
-    <section id="romance" class="py-16 px-4 bg-white">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-10">
-          <h2 class="text-2xl md:text-3xl font-bold text-black">Romance</h2>
+    <section id="romance" class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold text-black">Romance</h2>
           <a
             href="#"
-            class="text-black hover:text-gray-700 font-medium flex items-center text-sm"
+            class="text-gray-600 hover:text-black font-medium flex items-center"
           >
             View All <i class="fas fa-arrow-right ml-2"></i>
           </a>
@@ -522,7 +567,7 @@
                       <img
                         src="assets/1754822716.png"
                         alt="The Last Sakura"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -553,7 +598,7 @@
                       <img
                         src="assets/1754823013.png"
                         alt="Moonlit Serenade"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -584,7 +629,7 @@
                       <img
                         src="assets/1754822821.png"
                         alt="Whispers of Spring"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -615,7 +660,7 @@
                       <img
                         src="assets/1754823073.png"
                         alt="Ocean's Secret"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -646,7 +691,7 @@
                       <img
                         src="assets/1754822875.png"
                         alt="Moonlit Serenade"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -677,7 +722,7 @@
                       <img
                         src="assets/1754823196.png"
                         alt="The Last Sakura"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -705,28 +750,28 @@
           <!-- Romance Carousel Navigation -->
           <button
             id="romancePrevBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
           >
-            <i class="fas fa-chevron-left text-black text-sm"></i>
+            <i class="fas fa-chevron-left text-black"></i>
           </button>
           <button
             id="romanceNextBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
           >
-            <i class="fas fa-chevron-right text-black text-sm"></i>
+            <i class="fas fa-chevron-right text-black"></i>
           </button>
         </div>
       </div>
     </section>
 
     <!-- Open Minded Category Section -->
-    <section id="open-minded" class="py-16 px-4 bg-gray-50">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-10">
-          <h2 class="text-2xl md:text-3xl font-bold text-black">Open Minded</h2>
+    <section id="open-minded" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold text-black">Open Minded</h2>
           <a
             href="#"
-            class="text-black hover:text-gray-700 font-medium flex items-center text-sm"
+            class="text-gray-600 hover:text-black font-medium flex items-center"
           >
             View All <i class="fas fa-arrow-right ml-2"></i>
           </a>
@@ -748,7 +793,7 @@
                       <img
                         src="assets/1754822875.png"
                         alt="Digital Dreams"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -779,7 +824,7 @@
                       <img
                         src="assets/1754823196.png"
                         alt="The Last Sakura"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -810,7 +855,7 @@
                       <img
                         src="assets/1754823273.png"
                         alt="Guardian's Path"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -841,7 +886,7 @@
                       <img
                         src="assets/1754823320.png"
                         alt="Whispers of Spring"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -872,7 +917,7 @@
                       <img
                         src="assets/1754823013.png"
                         alt="Moonlit Serenade"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -903,7 +948,7 @@
                       <img
                         src="assets/1754823073.png"
                         alt="Ocean's Secret"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -931,30 +976,28 @@
           <!-- Open Minded Carousel Navigation -->
           <button
             id="openMindedPrevBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
           >
-            <i class="fas fa-chevron-left text-black text-sm"></i>
+            <i class="fas fa-chevron-left text-black"></i>
           </button>
           <button
             id="openMindedNextBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
           >
-            <i class="fas fa-chevron-right text-black text-sm"></i>
+            <i class="fas fa-chevron-right text-black"></i>
           </button>
         </div>
       </div>
     </section>
 
     <!-- Newly Released Category Section -->
-    <section id="newly-released" class="py-16 px-4 bg-white">
-      <div class="max-w-7xl mx-auto">
-        <div class="flex justify-between items-center mb-10">
-          <h2 class="text-2xl md:text-3xl font-bold text-black">
-            Newly Released
-          </h2>
+    <section id="newly-released" class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-2xl font-bold text-black">Newly Released</h2>
           <a
             href="#"
-            class="text-black hover:text-gray-700 font-medium flex items-center text-sm"
+            class="text-gray-600 hover:text-black font-medium flex items-center"
           >
             View All <i class="fas fa-arrow-right ml-2"></i>
           </a>
@@ -976,7 +1019,7 @@
                       <img
                         src="assets/1754822762.png"
                         alt="Guardian's Path"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -1007,7 +1050,7 @@
                       <img
                         src="assets/1754823013.png"
                         alt="Moonlit Serenade"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -1038,7 +1081,7 @@
                       <img
                         src="assets/1754823073.png"
                         alt="Ocean's Secret"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -1069,7 +1112,7 @@
                       <img
                         src="assets/1754822821.png"
                         alt="Whispers of Spring"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -1100,7 +1143,7 @@
                       <img
                         src="assets/1754822875.png"
                         alt="Digital Dreams"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -1131,7 +1174,7 @@
                       <img
                         src="assets/1754823320.png"
                         alt="Whispers of Spring"
-                        class="w-full h-full object-cover"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <div
@@ -1159,107 +1202,120 @@
           <!-- Newly Released Carousel Navigation -->
           <button
             id="newlyReleasedPrevBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
           >
-            <i class="fas fa-chevron-left text-black text-sm"></i>
+            <i class="fas fa-chevron-left text-black"></i>
           </button>
           <button
             id="newlyReleasedNextBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-2 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
           >
-            <i class="fas fa-chevron-right text-black text-sm"></i>
+            <i class="fas fa-chevron-right text-black"></i>
           </button>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-50 border-t border-gray-200 pt-12 pb-8 px-4">
-      <div class="max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-          <div>
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+          <div class="md:col-span-2">
             <div class="flex items-center space-x-3 mb-6">
-              <div
-                class="w-10 h-10 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center"
-              >
-                <span class="text-white font-bold text-xl">MA</span>
-              </div>
-              <span class="text-black font-bold text-xl">Micro Anime</span>
+                <div class="w-10 h-10">
+                    <img src="assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
+                </div>
+                <span class="text-white font-bold text-xl">MICRO ANIME</span>
             </div>
-            <p class="text-gray-600 mb-4">
-              Discover beautiful micro anime stories in bite-sized narratives.
+            <p class="text-gray-400 mb-6 max-w-md">
+              Discover beautiful micro anime stories in bite-sized narratives. 
+              Read anytime, anywhere on any device.
             </p>
             <div class="flex space-x-4">
-              <a href="#" class="text-gray-600 hover:text-black">
-                <i class="fab fa-discord"></i>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="fab fa-discord text-xl"></i>
               </a>
-              <a href="#" class="text-gray-600 hover:text-black">
-                <i class="fab fa-twitter"></i>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="fab fa-twitter text-xl"></i>
               </a>
-              <a href="#" class="text-gray-600 hover:text-black">
-                <i class="fab fa-instagram"></i>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="fab fa-instagram text-xl"></i>
               </a>
-              <a href="#" class="text-gray-600 hover:text-black">
-                <i class="fab fa-facebook"></i>
+              <a href="#" class="text-gray-400 hover:text-white">
+                <i class="fab fa-facebook text-xl"></i>
               </a>
             </div>
           </div>
 
           <div>
-            <h3 class="text-black font-bold text-lg mb-4">Navigation</h3>
+            <h3 class="text-white font-bold text-lg mb-6">Navigation</h3>
             <ul class="space-y-3">
               <li>
                 <a
                   href="index.html"
-                  class="text-gray-600 hover:text-black transition-colors"
+                  class="text-gray-400 hover:text-white transition-colors"
                   >Home</a
                 >
               </li>
               <li>
                 <a
                   href="#stories"
-                  class="text-gray-600 hover:text-black transition-colors"
-                  >Stories</a
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Featured</a
                 >
               </li>
               <li>
                 <a
                   href="#trending"
-                  class="text-gray-600 hover:text-black transition-colors"
+                  class="text-gray-400 hover:text-white transition-colors"
                   >Trending</a
                 >
               </li>
               <li>
                 <a
-                  href="#genres"
-                  class="text-gray-600 hover:text-black transition-colors"
+                  href="#romance"
+                  class="text-gray-400 hover:text-white transition-colors"
                   >Genres</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#newly-released"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >New Releases</a
                 >
               </li>
             </ul>
           </div>
 
           <div>
-            <h3 class="text-black font-bold text-lg mb-4">Legal</h3>
+            <h3 class="text-white font-bold text-lg mb-6">Support</h3>
             <ul class="space-y-3">
               <li>
                 <a
                   href="#"
-                  class="text-gray-600 hover:text-black transition-colors"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Help Center</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
                   >Terms of Service</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="text-gray-600 hover:text-black transition-colors"
+                  class="text-gray-400 hover:text-white transition-colors"
                   >Privacy Policy</a
                 >
               </li>
               <li>
                 <a
                   href="#"
-                  class="text-gray-600 hover:text-black transition-colors"
+                  class="text-gray-400 hover:text-white transition-colors"
                   >Copyright</a
                 >
               </li>
@@ -1267,7 +1323,7 @@
           </div>
         </div>
 
-        <div class="border-t border-gray-200 pt-6 text-center">
+        <div class="border-t border-gray-800 pt-8 text-center">
           <p class="text-gray-500 text-sm">
             &copy; 2025 Micro Anime. All rights reserved. This site is not
             affiliated with any anime studios.
@@ -1316,33 +1372,43 @@
     </div>
 
     <!-- Custom Scripts -->
-    <script type="module" src="js/auth.js"></script>
     <script type="module" src="js/stories.js"></script>
     <script type="module" src="js/dashboard.js"></script>
 
     <script type="module">
       // Check authentication state and update UI
       import { auth, onAuthStateChanged } from "./js/firebase/config.js";
+      import authManager from "./js/auth.js";
 
       document.addEventListener("DOMContentLoaded", () => {
-        const loginBtn = document.getElementById("loginBtn");
-
+        // Initialize auth state listener
         onAuthStateChanged(auth, (user) => {
           if (user) {
             // User is signed in
-            if (loginBtn) {
-              loginBtn.innerHTML = '<i class="fas fa-user mr-2"></i>Dashboard';
-              loginBtn.href = "dashboard.html";
-            }
+            authManager.currentUser = user;
+            authManager.loadUserData(user.uid).then(() => {
+              authManager.updateUI(true);
+            });
           } else {
             // User is signed out
-            if (loginBtn) {
-              loginBtn.innerHTML =
-                '<i class="fas fa-sign-in-alt mr-2"></i>Login';
-              loginBtn.href = "login.html";
-            }
+            authManager.currentUser = null;
+            authManager.userData = null;
+            authManager.updateUI(false);
           }
         });
+        
+        // Add click handler for login button
+        const loginBtn = document.getElementById("loginBtn");
+        if (loginBtn) {
+          loginBtn.addEventListener("click", () => {
+            // Check current state from UI
+            if (loginBtn.innerHTML.includes("Dashboard")) {
+              window.location.href = "dashboard.html";
+            } else {
+              window.location.href = "login.html";
+            }
+          });
+        }
 
         // Featured Stories Carousel
         const storiesContainer = document.getElementById("storiesContainer");
