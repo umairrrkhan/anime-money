@@ -44,15 +44,13 @@
   </head>
   <body class="bg-white text-black font-inter overflow-x-hidden">
     <!-- Modern Anime Header -->
-    <header
-      class="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-200"
-    >
-      <div class="px-4">
+    <header class="w-full z-50 bg-white/95 backdrop-blur-md">
+      <div class="px-4 border-b-1 border-gray-200">
         <nav class="flex items-center justify-between py-4">
           <!-- Logo -->
-          <div class="flex items-center">
+          <div class="flex gap-8 items-center">
             <div
-              class="w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center"
+              class="w-20 h-20 bg-gradient-to-br from-purple-600 to-pink-600 rounded-lg flex items-center justify-center max-lg:w-15 max-lg:h-15"
             >
               <span class="text-white font-bold text-2xl">MA</span>
             </div>
@@ -73,26 +71,34 @@
                     </a>
                 </div> -->
 
-            <div class="">
-              <a href="#"> ORIGINALS </a>
-              <a href="#"> CATEGORIES </a>
-              <a href="#"> RANKINGS </a>
-              <a href="#"> CANVAS </a>
+            <div
+              class="font-bold text-lg flex gap-8 pr-8 border-r border-solid border-gray-200 max-lg:hidden"
+            >
+              <a href="#" class="text-black"> ORIGINALS </a>
+              <a href="#" class="nav-link"> CATEGORIES </a>
+              <a href="#" class="nav-link"> RANKINGS </a>
+              <a href="#" class="nav-link"> CANVAS </a>
             </div>
           </div>
 
-          <div>
+          <div class="font-semibold text-sm flex gap-2 items-center max-lg:hidden">
             <a href="#">ANIME-MONEY SHOP</a>
             <a href="#">Creators 101</a>
-            <button>Publish</button>
-            <button>Login</button>
+            <button class="bg-black rounded-2xl text-white px-4 py-2">
+              Publish
+            </button>
+            <button
+              class="bg-gray-100 rounded-2xl text-black px-4 py-2 hover:bg-gray-200"
+            >
+              Login
+            </button>
           </div>
 
           <!-- Mobile Menu -->
-          <div class="md:hidden">
+          <div class="lg:hidden">
             <button class="text-gray-600 hover:text-black">
               <svg
-                class="w-6 h-6"
+                class="w-10 h-10"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -109,6 +115,18 @@
         </nav>
       </div>
     </header>
+    <div class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md px-32 border-b-[1px] border-solid border-gray-200 shadow-xs max-md:px-4">
+      <div class="flex items-center gap-8 font-medium text-black max-md:flex-wrap max-md:gap-2">
+        <a href="#" class="border-b-2 border-solid border-black py-4">MON</a>
+        <a href="#">TUE</a>
+        <a href="#">WED</a>
+        <a href="#">THUR</a>
+        <a href="#">FRI</a>
+        <a href="#">SAT</a>
+        <a href="#">SUN</a>
+        <a href="#">COMPLETED</a>
+      </div>
+    </div>
 
     <!-- Featured Stories Section -->
     <section id="stories" class="py-16 px-4 bg-white">
