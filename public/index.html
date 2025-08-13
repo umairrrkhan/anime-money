@@ -3,12 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Micro Anime - Bite-sized Anime Stories</title>
+    <title>Micro Anime - Bite-sized Anime Stories | Read MicroAnime Online</title>
     <meta
       name="description"
-      content="Discover beautiful micro anime stories in a seamless experience"
+      content="Discover beautiful micro anime stories in a seamless experience. Read Micro Anime and MicroAnime stories online for free. Bite-sized anime for the modern viewer."
     />
-    <link rel="icon" type="image/png" href="assets/logo.png">
+    <meta name="keywords" content="Micro Anime, MicroAnime, anime stories, short anime, bite-sized anime, online anime reading, anime webtoon, anime manga" />
+    <meta name="author" content="Micro Anime" />
+    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="32x32">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Micro Anime - Bite-sized Anime Stories" />
+    <meta property="og:description" content="Discover beautiful micro anime stories in a seamless experience. Read Micro Anime and MicroAnime stories online for free." />
+    <meta property="og:image" content="https://microanime.com/assets/logo.png" />
+    <meta property="og:url" content="https://microanime.com" />
+    <meta property="og:site_name" content="Micro Anime" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Micro Anime - Bite-sized Anime Stories" />
+    <meta property="twitter:description" content="Discover beautiful micro anime stories in a seamless experience. Read Micro Anime and MicroAnime stories online for free." />
+    <meta property="twitter:image" content="https://microanime.com/assets/logo.png" />
+    <meta property="twitter:site" content="@MicroAnime" />
 
     <!-- TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -44,21 +61,20 @@
     <script type="module" src="js/auth.js"></script>
   </head>
   <body class="bg-white text-black font-inter overflow-x-hidden">
-    <!-- Webtoons-inspired Header -->
-    <header class="w-full z-50 bg-white shadow-sm">
-      <div class="max-w-7xl mx-auto px-4">
+    <!-- Universal Header - Floating glass effect with curved sides -->
+    <header class="fixed top-4 left-1/2 transform -translate-x-1/2 w-3/4 z-50 rounded-full bg-white/80 backdrop-blur-lg border border-base-200 shadow-lg">
+      <div class="max-w-7xl mx-auto px-6">
         <nav class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <div class="flex items-center">
-            <div class="w-10 h-10 mr-3">
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12">
               <img src="assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
             </div>
-            <span class="text-black font-bold text-xl">MICRO ANIME</span>
           </div>
 
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-8">
-            <a href="#stories" class="text-gray-700 hover:text-black font-medium">ORIGINALS</a>
+            <a href="#stories" class="text-gray-700 hover:text-black font-medium">HOME</a>
             <a href="#trending" class="text-gray-700 hover:text-black font-medium">TRENDING</a>
             <a href="#romance" class="text-gray-700 hover:text-black font-medium">GENRES</a>
             <a href="#newly-released" class="text-gray-700 hover:text-black font-medium">NEW</a>
@@ -66,6 +82,26 @@
 
           <!-- User Actions -->
           <div class="flex items-center space-x-4">
+            <!-- Search Bar with Logo - Search functionality implemented below -->
+            <div class="relative hidden md:block">
+              <form id="searchForm" action="#" method="GET" class="flex items-center">
+                <input 
+                  type="text" 
+                  name="q" 
+                  id="searchInput"
+                  placeholder="Search MicroAnime, Micro Anime stories..." 
+                  class="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-48 transition-all duration-300 focus:w-64"
+                >
+                <div class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5">
+                  <img src="assets/logo.png" alt="MicroAnime" class="w-full h-full">
+                </div>
+              </form>
+              <!-- Search Results Dropdown -->
+              <div id="searchResults" class="absolute top-full left-0 w-full mt-2 bg-white rounded-lg shadow-lg border border-gray-200 z-50 hidden max-h-96 overflow-y-auto">
+                <!-- Search results will be populated here -->
+              </div>
+            </div>
+            
             <button id="loginBtn" class="bg-black text-white px-4 py-2 rounded-lg font-medium hover:bg-gray-800 transition-colors">
               <i class="fas fa-sign-in-alt mr-2"></i>Login
             </button>
@@ -96,8 +132,8 @@
               </div>
             </div>
             
-            <!-- Search Icon -->
-            <button class="text-gray-600 hover:text-black">
+            <!-- Search Icon for Mobile -->
+            <button class="md:hidden text-gray-600 hover:text-black">
               <i class="fas fa-search text-xl"></i>
             </button>
             
@@ -112,34 +148,31 @@
     
 
     <!-- Hero Section -->
-    <section class="relative text-black py-16 md:py-24 overflow-hidden">
+    <section class="relative text-black py-8 md:py-12 overflow-hidden mt-20">
       <div class="max-w-7xl mx-auto px-4">
         <div class="flex flex-col md:flex-row items-center">
           <!-- Text Content (Left Side) -->
-          <div class="md:w-1/2 md:pr-12 relative z-10">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          <div class="md:w-1/2 md:pr-8 relative z-10">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4 leading-tight">
               Discover Amazing Micro Anime Stories
             </h1>
-            <p class="text-xl mb-8 text-gray-700">
+            <p class="text-lg mb-6 text-gray-700">
               Bite-sized anime stories for the modern viewer. Read anywhere, anytime.
             </p>
             <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <button class="bg-black text-white px-8 py-3 rounded-lg font-bold hover:bg-gray-800 transition-colors">
+              <a href="#stories" class="bg-black text-white px-6 py-2 rounded-lg font-bold hover:bg-gray-800 transition-colors text-center">
                 Start Reading
-              </button>
-              <button class="bg-transparent border-2 border-black text-black px-8 py-3 rounded-lg font-bold hover:bg-black/5 transition-colors">
-                View Originals
-              </button>
+              </a>
             </div>
           </div>
           
-          <!-- Image Content (Right Side) -->
-          <div class="md:w-1/2 mt-12 md:mt-0 relative z-10">
+          <!-- Image Content (Right Side) - Reduced size to take less space -->
+          <div class="md:w-1/2 mt-6 md:mt-0 relative z-10">
             <div class="relative">
-              <div class="transform rotate-6 scale-105 rounded-xl overflow-hidden shadow-2xl border-4 border-white/20">
-                <img src="assets/1754822821.png" alt="Anime Character" class="w-full h-auto object-cover brightness-110 contrast-110 saturate-125" />
+              <div class="transform rotate-3 rounded-lg overflow-hidden shadow-xl border-2 border-white/20">
+                <!-- Reduced image height with max-h-64 -->
+                <img src="assets/1754822821.png" alt="Anime Character" class="w-full h-auto object-cover brightness-110 contrast-110 saturate-125 max-h-64" />
               </div>
-              <div class="absolute -bottom-6 -right-6 w-full h-full border-4 border-white/10 rounded-xl transform rotate-3"></div>
             </div>
           </div>
         </div>
@@ -1104,44 +1137,7 @@
       </div>
     </footer>
 
-    <!-- Story Modal -->
-    <div
-      id="storyModal"
-      class="fixed inset-0 bg-black bg-opacity-80 z-50 hidden flex items-center justify-center p-4"
-    >
-      <div
-        class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden border border-gray-200"
-      >
-        <div
-          class="p-6 border-b border-gray-200 flex justify-between items-center"
-        >
-          <h3 id="modalTitle" class="text-2xl font-bold text-black">
-            Story Title
-          </h3>
-          <button id="closeModal" class="text-gray-500 hover:text-black">
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
-          </button>
-        </div>
-        <div
-          id="modalContent"
-          class="p-6 overflow-y-auto max-h-[60vh] text-gray-700"
-        >
-          <p>Loading story...</p>
-        </div>
-      </div>
-    </div>
+    
 
     <!-- Custom Scripts -->
     <script type="module" src="js/stories.js"></script>
@@ -1359,9 +1355,4 @@
           }
         }
 
-        window.addEventListener("resize", handleResize);
-        handleResize(); // Initial check
-      });
-    </script>
-  </body>
-</html>
+        window.addEventListener("resize", handleResize);\n        handleResize(); // Initial check\n        \n        // Search functionality - Added functionality to make search work\n        const searchForm = document.getElementById('searchForm');\n        const searchInput = document.getElementById('searchInput');\n        \n        searchForm.addEventListener('submit', function(e) {\n          e.preventDefault();\n          const searchTerm = searchInput.value.trim().toLowerCase();\n          \n          if (searchTerm) {\n            // Simple search implementation - in a real app, this would call an API\n            // For now, we'll just scroll to the stories section and show an alert\n            alert(`Searching for: ${searchTerm}\\nIn a full implementation, this would filter stories based on your search.`);\n            \n            // Scroll to stories section\n            document.getElementById('stories').scrollIntoView({\n              behavior: 'smooth'\n            });\n            \n            // Clear search input\n            searchInput.value = '';\n          }\n        });\n        \n        // Smooth scrolling for navigation links - Added smooth scrolling instead of jumping\n        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {\n          anchor.addEventListener('click', function (e) {\n            e.preventDefault();\n            const targetId = this.getAttribute('href');\n            const targetElement = document.querySelector(targetId);\n            \n            if (targetElement) {\n              targetElement.scrollIntoView({\n                behavior: 'smooth',\n                block: 'start'\n              });\n            }\n          });\n        });\n      });\n    </script>\n  </body>\n</html>
