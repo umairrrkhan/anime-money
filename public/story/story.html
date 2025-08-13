@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="storyTitle">Story Title - Micro Anime</title>
+    <meta name="description" content="Read this amazing story on Micro Anime">
+    <link rel="icon" type="image/png" href="../assets/logo.png">
+    
+    <!-- TailwindCSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Auth Module -->
+    <script type="module" src="../js/auth.js"></script>
+    
+    <style>
+        .hero-image {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .hero-overlay {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+        }
+        
+        .story-layout {
+            transform: translateY(-80px);
+        }
+        
+        /* Anime-inspired professional typography */
+        .anime-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+        }
+        
+        .chapter-title {
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        
+        /* Share button styling */
+        .share-button {
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .share-button:hover {
+            background-color: #e2e8f0;
+        }
+        
+        /* Genre tag styling with running animation */
+        .genre-tag {
+            border: 2px solid;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .genre-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            animation: shine 2s infinite;
+        }
+        
+        .genre-romance {
+            border-color: #ec4899; /* pink */
+            color: #ec4899;
+            background-color: #fdf2f8;
+        }
+        
+        .genre-action {
+            border-color: #ef4444; /* red */
+            color: #ef4444;
+            background-color: #fef2f2;
+        }
+        
+        .genre-comedy {
+            border-color: #f59e0b; /* amber */
+            color: #f59e0b;
+            background-color: #fffbeb;
+        }
+        
+        .genre-drama {
+            border-color: #8b5cf6; /* violet */
+            color: #8b5cf6;
+            background-color: #f5f3ff;
+        }
+        
+        .genre-fantasy {
+            border-color: #06b6d4; /* cyan */
+            color: #06b6d4;
+            background-color: #ecfeff;
+        }
+        
+        .genre-scifi {
+            border-color: #3b82f6; /* blue */
+            color: #3b82f6;
+            background-color: #eff6ff;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: -60%; }
+            40% { left: -20%; }
+            60% { left: 20%; }
+            80% { left: 60%; }
+            100% { left: 100%; }
+        }
+        
+        /* 3D Pagination with Moving Border */
+        .moving-border {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(255, 255, 255, 0.8) 10deg,
+                transparent 20deg,
+                transparent 360deg
+            );
+            animation: rotate 2s linear infinite;
+            z-index: 0;
+            border-radius: 0.5rem;
+        }
+        
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Fix for content visibility */
+        .pagination-content {
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Pagination spacing */
+        .pagination-spacing {
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body class="bg-base-200 text-base-content font-inter">
+    <!-- Universal Header -->
+    <header class="fixed top-0 w-full z-50 bg-base-100/90 backdrop-blur-md border-b border-base-200">
+        <div class="max-w-7xl mx-auto px-4">
+            <nav class="flex items-center justify-between h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8">
+                        <img src="../assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
+                    </div>
+                    <span class="text-black font-bold text-lg">Micro Anime</span>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../index.html" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        <i class="fas fa-home mr-2"></i>Home
+                    </a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <a href="../index.html" class="text-gray-600 hover:text-black">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Image -->
+    <section class="mt-16">
+        <!-- Hero Image -->
+        <div id="heroImage" class="hero-image w-full">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+        
+        <!-- Story Content -->
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="story-layout bg-base-100 p-6 md:p-8 max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Left Column - Main Content -->
+                    <div class="lg:col-span-2">
+                        <h1 id="storyTitleHeader" class="text-3xl md:text-4xl anime-title text-gray-900 mb-4">Story Title</h1>
+                        
+                        <div class="flex items-center gap-4 mb-6 text-sm text-gray-600">
+                            <span id="storyGenre" class="genre-tag px-3 py-1 rounded-full text-xs font-semibold animate-pulse"></span>
+                            <span class="text-gray-400">•</span>
+                            <span id="storyReadTime">0 min read</span>
+                        </div>
+                        
+                        <!-- Share Section -->
+                        <div class="flex flex-wrap items-center gap-4 mb-8">
+                            <div class="w-12 h-12 rounded-full overflow-hidden">
+                                <div class="tenor-gif-embed" data-postid="17864924" data-share-method="host" data-aspect-ratio="1.00946" data-width="100%"></div>
+                            </div>
+                            <button id="shareButton" class="share-button px-4 py-2 rounded flex items-center gap-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                                Share Story
+                            </button>
+                        </div>
+                        
+                        <!-- Episodes List -->
+                        <div class="border-t border-base-200 pt-6">
+                            <div id="chaptersList" class="space-y-4">
+                                <!-- Episodes will be loaded here -->
+                            </div>
+                            <!-- Pagination -->
+                            <div id="pagination" class="flex flex-col items-center mt-8 space-y-4 pagination-spacing">
+                                <!-- Pagination buttons will be generated here -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Column - Summary and Info -->
+                    <div class="lg:col-span-1 border-t lg:border-t-0 lg:border-l border-base-200 lg:pl-8 pt-6 lg:pt-0">
+                        <!-- Summary Section -->
+                        <div class="mb-8">
+                            <h3 class="text-xl anime-title text-gray-900 mb-4">Summary</h3>
+                            <p id="storySummary" class="text-gray-700 leading-relaxed mb-6">
+                                Story summary will appear here.
+                            </p>
+                        </div>
+                        
+                        <!-- Story Info -->
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-sm mb-1">Status</h4>
+                                <span class="text-sm text-gray-600">Ongoing</span>
+                            </div>
+                            
+                            <div>
+                                <h4 class="font-semibold text-gray-900 text-sm mb-1">Author</h4>
+                                <span class="text-sm text-gray-600">MicroAnime</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white text-black pt-16 pb-8">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+                <div class="w-10 h-10">
+                    <img src="../assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
+                </div>
+                <span class="text-black font-bold text-xl">MICRO ANIME</span>
+            </div>
+            <p class="text-gray-600 mb-6 max-w-md">
+              Discover beautiful micro anime stories in bite-sized narratives. 
+              Read anytime, anywhere on any device.
+            </p>
+          </div>
+
+          <div>
+            <div class="flex flex-wrap gap-6">
+              <a href="#" class="text-gray-600 hover:text-black transition-colors">Terms of Service</a>
+              <a href="#" class="text-gray-600 hover:text-black transition-colors">Privacy Policy</a>
+              <a href="#" class="text-gray-600 hover:text-black transition-colors">Advertising</a>
+              <a href="#" class="text-gray-600 hover:text-black transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-200 pt-8 text-center">
+          <p class="text-gray-500 text-sm">
+            &copy; 2025 Micro Anime. All rights reserved. This site is not
+            affiliated with any anime studios.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module">
+        import { auth, onAuthStateChanged } from "../js/firebase/config.js";
+        import authManager from "../js/auth.js";
+        
+        // Wait for DOM to be loaded
+            document.addEventListener('DOMContentLoaded', async () => {
+                // Show loading state
+                const chaptersList = document.getElementById('chaptersList');
+                if (chaptersList) {
+                    chaptersList.innerHTML = '<div class="text-center py-8"><span class="loading loading-spinner loading-md"></span><p class="mt-2 text-gray-600">Loading episodes...</p></div>';
+                }
+            // Get story ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const storyId = urlParams.get('id');
+            
+            if (!storyId) {
+                // Show error message instead of redirecting
+                document.getElementById('storyTitleHeader').textContent = 'Story Not Found';
+                document.getElementById('chaptersList').innerHTML = '<p class="text-gray-600">Sorry, we couldn\'t find the episodes you\'re looking for.</p>';
+                return;
+            }
+            
+            // Map story IDs to image assets
+            const storyImages = {
+                'the-last-sakura': '../assets/1754822716.png',
+                'guardians-path': '../assets/1754822762.png',
+                'whispers-of-spring': '../assets/1754822821.png',
+                'moonlit-serenade': '../assets/1754822875.png',
+                'digital-dreams': '../assets/1754823013.png',
+                'oceans-secret': '../assets/1754823073.png'
+            };
+            
+            // Set hero image
+            const heroImage = document.getElementById('heroImage');
+            if (storyImages[storyId]) {
+                heroImage.style.backgroundImage = `url(${storyImages[storyId]})`;
+            }
+            
+            // Story summaries
+            const storySummaries = {
+                'the-last-sakura': 'A touching tale of love and loss centered around an ancient sakura tree that blooms for the final time. Akira revisits the tree where he first met his beloved Hana, reflecting on their life together and the promise he couldn\'t keep.',
+                'guardians-path': 'In a world where the barrier between realms is crumbling, young Riku must embrace his role as a guardian to protect both the spirit realm and the living world from encroaching darkness.',
+                'whispers-of-spring': 'Mei discovers a magical garden that exists between dreams and reality, where memories take the form of flowers and her grandmother\'s legacy blooms anew.',
+                'moonlit-serenade': 'A musician\'s journey to find inspiration in the most unexpected places, guided by the gentle melodies of the night.',
+                'digital-dreams': 'In a futuristic world where virtual reality has become indistinguishable from reality, one programmer discovers a glitch that might be more than just a bug.',
+                'oceans-secret': 'An underwater adventure following a young explorer who uncovers ancient secrets hidden in the depths of the ocean.'
+            };
+            
+            // Story ranks
+            const storyRanks = {
+                'the-last-sakura': '#1',
+                'guardians-path': '#3',
+                'whispers-of-spring': '#2',
+                'moonlit-serenade': '#5',
+                'digital-dreams': '#4',
+                'oceans-secret': '#6'
+            };
+            
+            // Share functionality
+            const shareButton = document.getElementById('shareButton');
+            if (shareButton) {
+                shareButton.addEventListener('click', async () => {
+                    try {
+                        if (navigator.share) {
+                            await navigator.share({
+                                title: document.title,
+                                text: 'Check out this amazing story!',
+                                url: window.location.href
+                            });
+                        } else {
+                            // Fallback: copy to clipboard
+                            await navigator.clipboard.writeText(window.location.href);
+                            // Show a simple alert or you could implement a toast notification
+                            alert('Link copied to clipboard!');
+                        }
+                    } catch (err) {
+                        console.error('Error sharing:', err);
+                        // Fallback: copy to clipboard
+                        try {
+                            await navigator.clipboard.writeText(window.location.href);
+                            alert('Link copied to clipboard!');
+                        } catch (copyErr) {
+                            console.error('Error copying to clipboard:', copyErr);
+                            alert('Failed to copy link. Please copy the URL manually.');
+                        }
+                    }
+                });
+            }
+            
+            // Load story data
+            try {
+                const response = await fetch(`../stories/${storyId}.json`);
+                if (!response.ok) {
+                    throw new Error(`Story not found: ${response.status}`);
+                }
+                const storyData = await response.json();
+                
+                // Update page title and header
+                document.title = `${storyData.title} - Micro Anime`;
+                document.getElementById('storyTitleHeader').textContent = storyData.title;
+                document.getElementById('storyReadTime').textContent = `${storyData.readTime} min read`;
+                
+                // Update genre tag with styling
+                const genreElement = document.getElementById('storyGenre');
+                if (genreElement) {
+                    genreElement.textContent = storyData.genre;
+                    // Add genre-specific styling
+                    const genreClass = `genre-${storyData.genre.toLowerCase()}`.replace(/[^a-z0-9-]/g, '');
+                    genreElement.className = `genre-tag px-3 py-1 rounded-full text-xs font-semibold ${genreClass}`;
+                }
+                
+                // Update summary
+                const summaryElement = document.getElementById('storySummary');
+                if (summaryElement) {
+                    summaryElement.textContent = storySummaries[storyId] || 'Story summary coming soon.';
+                }
+                
+                // Update rank
+                const rankElement = document.getElementById('storyRank');
+                if (rankElement) {
+                    rankElement.textContent = storyRanks[storyId] || '#N/A';
+                }
+                
+                // Update genre info
+                const genreInfoElement = document.getElementById('storyGenreInfo');
+                if (genreInfoElement) {
+                    genreInfoElement.textContent = storyData.genre;
+                }
+                
+                // Generate episodes list with pagination
+                const chaptersList = document.getElementById('chaptersList');
+                const paginationElement = document.getElementById('pagination');
+                if (chaptersList && paginationElement) {
+                    const episodesPerPage = 11;
+                    // Get current page from URL or default to 1
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const currentPage = parseInt(urlParams.get('page')) || 1;
+                    
+                    // Calculate start and end indices
+                    const startIndex = (currentPage - 1) * episodesPerPage;
+                    const endIndex = startIndex + episodesPerPage;
+                    const currentEpisodes = storyData.chapters.slice(startIndex, endIndex);
+                    
+                    // Clear previous content
+                    chaptersList.innerHTML = '';
+                    
+                    // Generate current episodes
+                    currentEpisodes.forEach((chapter, index) => {
+                        const actualIndex = startIndex + index;
+                        const chapterElement = document.createElement('div');
+                        chapterElement.className = 'pb-4 last:pb-0';
+                        chapterElement.innerHTML = `
+                            <div class="flex justify-between items-center py-2 border-b border-dashed border-base-300">
+                                <a href="chapter.html?story=${storyId}&chapter=${actualIndex}" class="text-xl chapter-title text-gray-900">
+                                    Episode ${actualIndex + 1}
+                                </a>
+                                <span class="text-sm text-gray-500">Aug 13, 2025</span>
+                            </div>
+                        `;
+                        chaptersList.appendChild(chapterElement);
+                    });
+                    
+                    // Add empty space if less than episodesPerPage
+                    if (currentEpisodes.length < episodesPerPage) {
+                        const emptySlots = episodesPerPage - currentEpisodes.length;
+                        for (let i = 0; i < emptySlots; i++) {
+                            const emptyElement = document.createElement('div');
+                            emptyElement.className = 'pb-4 last:pb-0';
+                            emptyElement.innerHTML = `
+                                <div class="py-2 border-b border-dashed border-base-300">
+                                </div>
+                            `;
+                            chaptersList.appendChild(emptyElement);
+                        }
+                    }
+                    
+                    // Generate pagination controls
+                    const totalPages = Math.ceil(storyData.chapters.length / episodesPerPage);
+                    let paginationHTML = '';
+                    
+                    // Only show pagination if there's more than one page
+                    if (totalPages > 1) {
+                        // Previous button
+                    if (currentPage > 1) {
+                        paginationHTML += `<a href="?id=${storyId}&page=${currentPage - 1}" class="px-4 py-2 rounded-lg border-2 border-yellow-400 text-yellow-600 font-bold hover:bg-yellow-100 transition-colors duration-200 relative overflow-hidden">
+                            <span class="pagination-content">&laquo; Prev</span>
+                            <div class="moving-border"></div>
+                        </a>`;
+                    }
+                    
+                    // Page numbers
+                    for (let i = 1; i <= totalPages; i++) {
+                        if (i === currentPage) {
+                            paginationHTML += `<span class="px-4 py-2 rounded-lg border-2 border-yellow-400 bg-yellow-400 text-white font-bold">
+                                <span class="pagination-content">${i}</span>
+                            </span>`;
+                        } else {
+                            paginationHTML += `<a href="?id=${storyId}&page=${i}" class="px-4 py-2 rounded-lg border-2 border-yellow-400 text-yellow-600 font-bold hover:bg-yellow-100 transition-colors duration-200 relative overflow-hidden">
+                                <span class="pagination-content">${i}</span>
+                                <div class="moving-border"></div>
+                            </a>`;
+                        }
+                    }
+                    
+                    // Next button
+                    if (currentPage < totalPages) {
+                        paginationHTML += `<a href="?id=${storyId}&page=${currentPage + 1}" class="px-4 py-2 rounded-lg border-2 border-yellow-400 text-yellow-600 font-bold hover:bg-yellow-100 transition-colors duration-200 relative overflow-hidden">
+                            <span class="pagination-content">Next &raquo;</span>
+                            <div class="moving-border"></div>
+                        </a>`;
+                    }
+                        
+                        paginationElement.innerHTML = paginationHTML;
+                    } else {
+                        // Even for single page, show the page number
+                    paginationHTML += `<div class="flex justify-center">
+                        <span class="px-4 py-2 rounded-lg border-2 border-yellow-400 bg-yellow-400 text-white font-bold">
+                            <span class="pagination-content">${currentPage}</span>
+                        </span>
+                    </div>`;
+                        paginationElement.innerHTML = paginationHTML;
+                    }
+                }
+                
+            } catch (error) {
+                console.error('Error loading story:', error);
+                // Show error message with DaisyUI alert
+                const chaptersList = document.getElementById('chaptersList');
+                if (chaptersList) {
+                    chaptersList.innerHTML = `
+                        <div class="alert alert-error shadow-lg">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span>Sorry, we couldn't find the episodes you're looking for. Please try again later.</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+</body>
+</html>
