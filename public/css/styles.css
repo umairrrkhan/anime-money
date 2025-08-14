@@ -216,6 +216,5 @@ img {
 #romancePrevBtn:hover, #romanceNextBtn:hover,
 #openMindedPrevBtn:hover, #openMindedNextBtn:hover,
 #newlyReleasedPrevBtn:hover, #newlyReleasedNextBtn:hover {
-    transform: scale(1.05);
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }

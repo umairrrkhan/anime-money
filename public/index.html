@@ -39,6 +39,7 @@
 
     <!-- Custom Styles -->
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/carousel.css" />
 
     <!-- Preload critical resources -->
     <link
@@ -75,8 +76,7 @@
           <!-- Desktop Navigation -->
           <div class="hidden md:flex items-center space-x-8">
             <a href="#stories" class="text-gray-700 hover:text-black font-medium">HOME</a>
-            <a href="#trending" class="text-gray-700 hover:text-black font-medium">TRENDING</a>
-            <a href="#romance" class="text-gray-700 hover:text-black font-medium">GENRES</a>
+            <a href="#romance" class="text-gray-700 hover:text-black font-medium">DARK ROMANCE</a>
             <a href="#newly-released" class="text-gray-700 hover:text-black font-medium">NEW</a>
           </div>
 
@@ -171,7 +171,7 @@
             <div class="relative">
               <div class="transform rotate-3 rounded-lg overflow-hidden shadow-xl border-2 border-white/20">
                 <!-- Reduced image height with max-h-64 -->
-                <img src="assets/1754822821.png" alt="Anime Character" class="w-full h-auto object-cover brightness-110 contrast-110 saturate-125 max-h-64" />
+                <img src="assets/romance/1754822716.png" alt="Romance Anime" class="w-full h-auto object-cover brightness-110 contrast-110 saturate-125 max-h-64" />
               </div>
             </div>
           </div>
@@ -191,27 +191,36 @@
 
         <!-- Carousel Container -->
         <div class="relative">
+          <!-- Previous Button -->
+          <button
+            id="prevBtn"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 carousel-btn rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200"
+            style="display: none;"
+          >
+            <i class="fas fa-chevron-left text-black"></i>
+          </button>
+          
           <!-- Carousel Wrapper -->
           <div id="storiesCarousel" class="overflow-hidden">
             <div
               id="storiesContainer"
               class="flex transition-transform duration-500 ease-in-out"
             >
-              <!-- Story 1 -->
+              <!-- Story 1 - Romance -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=the-last-sakura" class="group cursor-pointer">
+                <a href="story/story.html?id=eternal-love" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822716.png"
-                        alt="The Last Sakura"
+                        src="assets/romance/1754822716.png"
+                        alt="Eternal Love"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      The Last Sakura
+                      Eternal Love
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -223,21 +232,21 @@
                 </a>
               </div>
 
-              <!-- Story 2 -->
+              <!-- Story 2 - Action -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=guardians-path" class="group cursor-pointer">
+                <a href="story/story.html?id=warriors-quest" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822762.png"
-                        alt="Guardian's Path"
+                        src="assets/action/1755156566.png"
+                        alt="Warrior's Quest"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Guardian's Path
+                      Warrior's Quest
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -249,21 +258,21 @@
                 </a>
               </div>
 
-              <!-- Story 3 -->
+              <!-- Story 3 - Fantasy -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=whispers-of-spring" class="group cursor-pointer">
+                <a href="story/story.html?id=magical-forest" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822821.png"
-                        alt="Whispers of Spring"
+                        src="assets/openminded/1755156279.png"
+                        alt="Magical Forest"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Whispers of Spring
+                      Magical Forest
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -275,47 +284,21 @@
                 </a>
               </div>
 
-              <!-- Story 4 -->
+              <!-- Story 4 - Sci-Fi -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=moonlit-serenade" class="group cursor-pointer">
+                <a href="story/story.html?id=neon-cyber" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822875.png"
-                        alt="Moonlit Serenade"
+                        src="assets/romance/1754823013.png"
+                        alt="Neon Cyber"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                  </div>
-                  <div class="mt-3">
-                    <h4 class="text-sm font-bold text-black truncate">
-                      Moonlit Serenade
-                    </h4>
-                    <div class="flex flex-wrap gap-1 mt-1">
-                      <span
-                        class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded"
-                        >Music</span
                       >
                     </div>
                   </div>
-                </a>
-              </div>
-
-              <!-- Story 5 -->
-              <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=digital-dreams" class="group cursor-pointer">
-                  <div class="relative">
-                    <div class="aspect-[3/4] overflow-hidden">
-                      <img
-                        src="assets/1754823013.png"
-                        alt="Digital Dreams"
-                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
-                  </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Digital Dreams
+                      Neon Cyber
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -327,21 +310,21 @@
                 </a>
               </div>
 
-              <!-- Story 6 -->
+              <!-- Story 5 - Adventure -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=oceans-secret" class="group cursor-pointer">
+                <a href="story/story.html?id=lost-treasure" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823073.png"
-                        alt="Ocean's Secret"
+                        src="assets/romance/1754823073.png"
+                        alt="Lost Treasure"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Ocean's Secret
+                      Lost Treasure
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -352,19 +335,39 @@
                   </div>
                 </a>
               </div>
+
+              <!-- Story 6 - Dark Romance -->
+              <div class="flex-shrink-0 w-1/5 p-3">
+                <a href="story/story.html?id=midnight-whispers" class="group cursor-pointer">
+                  <div class="relative">
+                    <div class="aspect-[3/4] overflow-hidden">
+                      <img
+                        src="assets/dark romance/1755155544.png"
+                        alt="Midnight Whispers"
+                        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      >
+                    </div>
+                  </div>
+                  <div class="mt-3">
+                    <h4 class="text-sm font-bold text-black truncate">
+                      Midnight Whispers
+                    </h4>
+                    <div class="flex flex-wrap gap-1 mt-1">
+                      <span
+                        class="text-xs bg-pink-100 text-pink-800 px-1.5 py-0.5 rounded"
+                        >Dark Romance</span
+                      >
+                    </div>
+                  </div>
+                </a>
+              </div>
             </div>
           </div>
 
           <!-- Carousel Navigation -->
           <button
-            id="prevBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
-          >
-            <i class="fas fa-chevron-left text-black"></i>
-          </button>
-          <button
             id="nextBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 carousel-btn rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200"
           >
             <i class="fas fa-chevron-right text-black"></i>
           </button>
@@ -372,141 +375,9 @@
       </div>
     </section>
 
-    <!-- Trending Section -->
-    <section id="trending" class="py-16 bg-white">
-      <div class="max-w-7xl mx-auto px-6">
-        <div class="flex justify-between items-center mb-8">
-          <h2 class="text-2xl font-bold text-black">Trending Now</h2>
-          <a href="#" class="text-gray-600 hover:text-black font-medium flex items-center">
-            View All <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-        </div>
+    
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-          <!-- Trending Story 1 -->
-          <a href="story/story.html?id=the-last-sakura" class="group cursor-pointer">
-            <div class="relative">
-              <div class="aspect-[3/4] overflow-hidden">
-                <img
-                  src="assets/1754823196.png"
-                  alt="The Last Sakura"
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
-            <div class="mt-3">
-              <h4 class="text-sm font-bold text-black truncate">
-                The Last Sakura
-              </h4>
-              <div class="flex flex-wrap gap-1 mt-1">
-                <span
-                  class="text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded"
-                  >Romance</span
-                >
-              </div>
-            </div>
-          </a>
-
-          <!-- Trending Story 2 -->
-          <a href="story/story.html?id=guardians-path" class="group cursor-pointer">
-            <div class="relative">
-              <div class="aspect-[3/4] overflow-hidden">
-                <img
-                  src="assets/1754823273.png"
-                  alt="Guardian's Path"
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
-            <div class="mt-3">
-              <h4 class="text-sm font-bold text-black truncate">
-                Guardian's Path
-              </h4>
-              <div class="flex flex-wrap gap-1 mt-1">
-                <span
-                  class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded"
-                  >Action</span
-                >
-              </div>
-            </div>
-          </a>
-
-          <!-- Trending Story 3 -->
-          <a href="story/story.html?id=the-last-sakura" class="group cursor-pointer">
-            <div class="relative">
-              <div class="aspect-[3/4] overflow-hidden">
-                <img
-                  src="assets/1754822716.png"
-                  alt="The Last Sakura"
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
-            <div class="mt-3">
-              <h4 class="text-sm font-bold text-black truncate">
-                The Last Sakura
-              </h4>
-              <div class="flex flex-wrap gap-1 mt-1">
-                <span
-                  class="text-xs bg-pink-100 text-pink-800 px-1.5 py-0.5 rounded"
-                  >Romance</span
-                >
-              </div>
-            </div>
-          </a>
-
-          <!-- Trending Story 4 -->
-          <a href="story/story.html?id=whispers-of-spring" class="group cursor-pointer">
-            <div class="relative">
-              <div class="aspect-[3/4] overflow-hidden">
-                <img
-                  src="assets/1754822821.png"
-                  alt="Whispers of Spring"
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
-            <div class="mt-3">
-              <h4 class="text-sm font-bold text-black truncate">
-                Whispers of Spring
-              </h4>
-              <div class="flex flex-wrap gap-1 mt-1">
-                <span
-                  class="text-xs bg-green-100 text-green-800 px-1.5 py-0.5 rounded"
-                  >Fantasy</span
-                >
-              </div>
-            </div>
-          </a>
-
-          <!-- Trending Story 5 -->
-          <a href="story/story.html?id=moonlit-serenade" class="group cursor-pointer">
-            <div class="relative">
-              <div class="aspect-[3/4] overflow-hidden">
-                <img
-                  src="assets/1754822875.png"
-                  alt="Moonlit Serenade"
-                  class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-            </div>
-            <div class="mt-3">
-              <h4 class="text-sm font-bold text-black truncate">
-                Moonlit Serenade
-              </h4>
-              <div class="flex flex-wrap gap-1 mt-1">
-                <span
-                  class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded"
-                  >Music</span
-                >
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Romance Category Section -->
+    <!-- Romance Category Section - CAROUSEL CODE CAN BE MODIFIED -->
     <section id="romance" class="py-16 bg-white">
       <div class="max-w-7xl mx-auto px-6">
         <div class="flex justify-between items-center mb-8">
@@ -521,6 +392,15 @@
 
         <!-- Romance Carousel Container -->
         <div class="relative">
+          <!-- Previous Button -->
+          <button
+            id="romancePrevBtn"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 carousel-btn rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200"
+            style="display: none;"
+          >
+            <i class="fas fa-chevron-left text-black"></i>
+          </button>
+          
           <!-- Romance Carousel Wrapper -->
           <div id="romanceCarousel" class="overflow-hidden">
             <div
@@ -529,19 +409,19 @@
             >
               <!-- Romance Story 1 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=the-last-sakura" class="group cursor-pointer">
+                <a href="story/story.html?id=forbidden-love" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822716.png"
-                        alt="The Last Sakura"
+                        src="assets/romance/1754822762.png"
+                        alt="Forbidden Love"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      The Last Sakura
+                      Forbidden Love
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -555,19 +435,19 @@
 
               <!-- Romance Story 2 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=moonlit-serenade" class="group cursor-pointer">
+                <a href="story/story.html?id=heart-of-gold" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823013.png"
-                        alt="Moonlit Serenade"
+                        src="assets/romance/1754822821.png"
+                        alt="Heart of Gold"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Moonlit Serenade
+                      Heart of Gold
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -581,19 +461,19 @@
 
               <!-- Romance Story 3 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=whispers-of-spring" class="group cursor-pointer">
+                <a href="story/story.html?id=star-crossed" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822821.png"
-                        alt="Whispers of Spring"
+                        src="assets/romance/1754822875.png"
+                        alt="Star Crossed"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Whispers of Spring
+                      Star Crossed
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -607,19 +487,19 @@
 
               <!-- Romance Story 4 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=oceans-secret" class="group cursor-pointer">
+                <a href="story/story.html?id=love-beyond-time" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823073.png"
-                        alt="Ocean's Secret"
+                        src="assets/romance/1754823196.png"
+                        alt="Love Beyond Time"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Ocean's Secret
+                      Love Beyond Time
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -633,19 +513,19 @@
 
               <!-- Romance Story 5 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=moonlit-serenade" class="group cursor-pointer">
+                <a href="story/story.html?id=dreams-of-you" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822875.png"
-                        alt="Moonlit Serenade"
+                        src="assets/romance/1754823273.png"
+                        alt="Dreams of You"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Moonlit Serenade
+                      Dreams of You
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -659,19 +539,19 @@
 
               <!-- Romance Story 6 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=the-last-sakura" class="group cursor-pointer">
+                <a href="story/story.html?id=secret-admirer" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823196.png"
-                        alt="The Last Sakura"
+                        src="assets/romance/1754823320.png"
+                        alt="Secret Admirer"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      The Last Sakura
+                      Secret Admirer
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -687,14 +567,8 @@
 
           <!-- Romance Carousel Navigation -->
           <button
-            id="romancePrevBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
-          >
-            <i class="fas fa-chevron-left text-black"></i>
-          </button>
-          <button
             id="romanceNextBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 carousel-btn rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200"
           >
             <i class="fas fa-chevron-right text-black"></i>
           </button>
@@ -717,6 +591,15 @@
 
         <!-- Open Minded Carousel Container -->
         <div class="relative">
+          <!-- Previous Button -->
+          <button
+            id="openMindedPrevBtn"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 carousel-btn rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200"
+            style="display: none;"
+          >
+            <i class="fas fa-chevron-left text-black"></i>
+          </button>
+          
           <!-- Open Minded Carousel Wrapper -->
           <div id="openMindedCarousel" class="overflow-hidden">
             <div
@@ -725,24 +608,24 @@
             >
               <!-- Open Minded Story 1 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=moonlit-serenade" class="group cursor-pointer">
+                <a href="story/story.html?id=mind-expansion" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822875.png"
-                        alt="Digital Dreams"
+                        src="assets/openminded/1755156435.png"
+                        alt="Mind Expansion"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Digital Dreams
+                      Mind Expansion
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
-                        class="text-xs bg-cyan-100 text-cyan-800 px-1.5 py-0.5 rounded"
-                        >Sci-Fi</span
+                        class="text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded"
+                        >Open Minded</span
                       >
                     </div>
                   </div>
@@ -751,24 +634,24 @@
 
               <!-- Open Minded Story 2 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=the-last-sakura" class="group cursor-pointer">
+                <a href="story/story.html?id=consciousness-shift" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823196.png"
-                        alt="The Last Sakura"
+                        src="assets/openminded/ChatGPT Image Aug 14, 2025, 12_59_13 PM.png"
+                        alt="Consciousness Shift"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      The Last Sakura
+                      Consciousness Shift
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
                         class="text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded"
-                        >Romance</span
+                        >Open Minded</span
                       >
                     </div>
                   </div>
@@ -777,24 +660,24 @@
 
               <!-- Open Minded Story 3 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=guardians-path" class="group cursor-pointer">
+                <a href="story/story.html?id=quantum-leap" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823273.png"
-                        alt="Guardian's Path"
+                        src="assets/openminded/Google_AI_Studio_2025-08-14T07_23_29.847Z.png"
+                        alt="Quantum Leap"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Guardian's Path
+                      Quantum Leap
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
-                        class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded"
-                        >Action</span
+                        class="text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded"
+                        >Open Minded</span
                       >
                     </div>
                   </div>
@@ -803,24 +686,24 @@
 
               <!-- Open Minded Story 4 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=whispers-of-spring" class="group cursor-pointer">
+                <a href="story/story.html?id=infinite-possibilities" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823320.png"
-                        alt="Whispers of Spring"
+                        src="assets/openminded/Google_AI_Studio_2025-08-14T07_24_21.752Z.png"
+                        alt="Infinite Possibilities"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Whispers of Spring
+                      Infinite Possibilities
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
-                        class="text-xs bg-green-100 text-green-800 px-1.5 py-0.5 rounded"
-                        >Fantasy</span
+                        class="text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded"
+                        >Open Minded</span
                       >
                     </div>
                   </div>
@@ -829,24 +712,24 @@
 
               <!-- Open Minded Story 5 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=moonlit-serenade" class="group cursor-pointer">
+                <a href="story/story.html?id=beyond-reality" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823013.png"
-                        alt="Moonlit Serenade"
+                        src="assets/openminded/Google_AI_Studio_2025-08-14T07_24_57.578Z.png"
+                        alt="Beyond Reality"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Moonlit Serenade
+                      Beyond Reality
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
-                        class="text-xs bg-blue-100 text-blue-800 px-1.5 py-0.5 rounded"
-                        >Music</span
+                        class="text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded"
+                        >Open Minded</span
                       >
                     </div>
                   </div>
@@ -855,24 +738,24 @@
 
               <!-- Open Minded Story 6 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=oceans-secret" class="group cursor-pointer">
+                <a href="story/story.html?id=awakened-mind" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823073.png"
-                        alt="Ocean's Secret"
+                        src="assets/openminded/Google_AI_Studio_2025-08-14T07_25_30.953Z.png"
+                        alt="Awakened Mind"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Ocean's Secret
+                      Awakened Mind
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
-                        class="text-xs bg-cyan-100 text-cyan-800 px-1.5 py-0.5 rounded"
-                        >Adventure</span
+                        class="text-xs bg-purple-100 text-purple-800 px-1.5 py-0.5 rounded"
+                        >Open Minded</span
                       >
                     </div>
                   </div>
@@ -883,14 +766,8 @@
 
           <!-- Open Minded Carousel Navigation -->
           <button
-            id="openMindedPrevBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
-          >
-            <i class="fas fa-chevron-left text-black"></i>
-          </button>
-          <button
             id="openMindedNextBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 carousel-btn rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200"
           >
             <i class="fas fa-chevron-right text-black"></i>
           </button>
@@ -913,6 +790,15 @@
 
         <!-- Newly Released Carousel Container -->
         <div class="relative">
+          <!-- Previous Button -->
+          <button
+            id="newlyReleasedPrevBtn"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 carousel-btn rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200"
+            style="display: none;"
+          >
+            <i class="fas fa-chevron-left text-black"></i>
+          </button>
+          
           <!-- Newly Released Carousel Wrapper -->
           <div id="newlyReleasedCarousel" class="overflow-hidden">
             <div
@@ -921,19 +807,19 @@
             >
               <!-- Newly Released Story 1 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=guardians-path" class="group cursor-pointer">
+                <a href="story/story.html?id=new-beginnings" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822762.png"
-                        alt="Guardian's Path"
+                        src="assets/action/1755156694.png"
+                        alt="New Beginnings"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Guardian's Path
+                      New Beginnings
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
@@ -947,24 +833,24 @@
 
               <!-- Newly Released Story 2 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <a href="story/story.html?id=moonlit-serenade" class="group cursor-pointer">
+                <a href="story/story.html?id=dawn-of-change" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823013.png"
-                        alt="Moonlit Serenade"
+                        src="assets/dark romance/1755155585.png"
+                        alt="Dawn of Change"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Moonlit Serenade
+                      Dawn of Change
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
                         class="text-xs bg-green-100 text-green-800 px-1.5 py-0.5 rounded"
-                        >Music</span
+                        >Dark Romance</span
                       >
                     </div>
                   </div>
@@ -973,120 +859,114 @@
 
               <!-- Newly Released Story 3 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <div class="group cursor-pointer">
+                <a href="story/story.html?id=fresh-start" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823073.png"
-                        alt="Ocean's Secret"
+                        src="assets/openminded/Google_AI_Studio_2025-08-14T07_26_48.169Z.png"
+                        alt="Fresh Start"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Ocean's Secret
+                      Fresh Start
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
                         class="text-xs bg-green-100 text-green-800 px-1.5 py-0.5 rounded"
-                        >Adventure</span
+                        >Open Minded</span
                       >
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
 
               <!-- Newly Released Story 4 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <div class="group cursor-pointer">
+                <a href="story/story.html?id=new-horizons" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822821.png"
-                        alt="Whispers of Spring"
+                        src="assets/romance/Google_AI_Studio_2025-08-14T07_30_51.124Z.png"
+                        alt="New Horizons"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Whispers of Spring
+                      New Horizons
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
                         class="text-xs bg-green-100 text-green-800 px-1.5 py-0.5 rounded"
-                        >Fantasy</span
+                        >Romance</span
                       >
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
 
               <!-- Newly Released Story 5 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <div class="group cursor-pointer">
+                <a href="story/story.html?id=beginning-again" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754822875.png"
-                        alt="Digital Dreams"
+                        src="assets/action/Google_AI_Studio_2025-08-14T07_31_35.432Z.png"
+                        alt="Beginning Again"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Digital Dreams
+                      Beginning Again
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
                         class="text-xs bg-green-100 text-green-800 px-1.5 py-0.5 rounded"
-                        >Sci-Fi</span
+                        >Action</span
                       >
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
 
               <!-- Newly Released Story 6 -->
               <div class="flex-shrink-0 w-1/5 p-3">
-                <div class="group cursor-pointer">
+                <a href="story/story.html?id=renewed-hope" class="group cursor-pointer">
                   <div class="relative">
                     <div class="aspect-[3/4] overflow-hidden">
                       <img
-                        src="assets/1754823320.png"
-                        alt="Whispers of Spring"
+                        src="assets/dark romance/Google_AI_Studio_2025-08-14T07_21_59.219Z.png"
+                        alt="Renewed Hope"
                         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
+                      >
                     </div>
                   </div>
                   <div class="mt-3">
                     <h4 class="text-sm font-bold text-black truncate">
-                      Whispers of Spring
+                      Renewed Hope
                     </h4>
                     <div class="flex flex-wrap gap-1 mt-1">
                       <span
                         class="text-xs bg-green-100 text-green-800 px-1.5 py-0.5 rounded"
-                        >Fantasy</span
+                        >Dark Romance</span
                       >
                     </div>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
           </div>
 
           <!-- Newly Released Carousel Navigation -->
           <button
-            id="newlyReleasedPrevBtn"
-            class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
-          >
-            <i class="fas fa-chevron-left text-black"></i>
-          </button>
-          <button
             id="newlyReleasedNextBtn"
-            class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 carousel-btn rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow duration-200"
           >
             <i class="fas fa-chevron-right text-black"></i>
           </button>
@@ -1178,26 +1058,96 @@
           });
         }
 
-        // Featured Stories Carousel
-        const storiesContainer = document.getElementById("storiesContainer");
-        const prevBtn = document.getElementById("prevBtn");
-        const nextBtn = document.getElementById("nextBtn");
-        const storyCards = document.querySelectorAll(
-          "#storiesContainer > div"
-        ).length;
-        const cardWidth = document.querySelector(
-          "#storiesContainer > div"
-        ).offsetWidth;
-        let currentIndex = 0;
-
-        // Next button click
-        nextBtn.addEventListener("click", () => {
-          if (currentIndex < storyCards - 5) {
-            currentIndex++;
-            updateCarousel();
+        // Initialize carousels after a short delay to ensure DOM is fully loaded
+        setTimeout(() => {
+          initCarousels();
+        }, 100);
+        
+        // Search functionality - Added functionality to make search work
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+        
+        searchForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const searchTerm = searchInput.value.trim().toLowerCase();
+          
+          if (searchTerm) {
+            // Simple search implementation - in a real app, this would call an API
+            // For now, we'll just scroll to the stories section and show an alert
+            alert(`Searching for: ${searchTerm}\nIn a full implementation, this would filter stories based on your search.`);
+            
+            // Scroll to stories section
+            document.getElementById('stories').scrollIntoView({
+              behavior: 'smooth'
+            });
+            
+            // Clear search input
+            searchInput.value = '';
           }
         });
+        
+        // Smooth scrolling for navigation links - Added smooth scrolling instead of jumping
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+      });
 
+      // Improved Carousel Function with both next and previous buttons
+      function initCarousel(containerId, prevBtnId, nextBtnId) {
+        const container = document.getElementById(containerId);
+        const prevBtn = document.getElementById(prevBtnId);
+        const nextBtn = document.getElementById(nextBtnId);
+        
+        if (!container || !prevBtn || !nextBtn) {
+          return;
+        }
+        
+        const items = container.children;
+        if (items.length === 0) {
+          prevBtn.style.display = "none";
+          nextBtn.style.display = "none";
+          return;
+        }
+        
+        // Function to calculate carousel metrics
+        function calculateMetrics() {
+          const itemWidth = items[0]?.offsetWidth || 0;
+          const containerWidth = container.parentElement.offsetWidth;
+          // Make sure we have at least 1 visible item
+          const visibleItems = Math.max(1, Math.floor(containerWidth / itemWidth));
+          const totalItems = items.length;
+          
+          return { itemWidth, containerWidth, visibleItems, totalItems };
+        }
+        
+        let { itemWidth, containerWidth, visibleItems, totalItems } = calculateMetrics();
+        let currentIndex = 0;
+        
+        // Update carousel position and button visibility
+        function updateCarousel() {
+          const translateX = -currentIndex * itemWidth;
+          container.style.transform = `translateX(${translateX}px)`;
+          container.style.transition = "transform 0.5s ease-in-out";
+          
+          // Show/hide previous button
+          prevBtn.style.display = currentIndex > 0 ? "block" : "none";
+          
+          // Show/hide next button
+          nextBtn.style.display = 
+            currentIndex < totalItems - visibleItems ? "block" : "none";
+        }
+        
         // Previous button click
         prevBtn.addEventListener("click", () => {
           if (currentIndex > 0) {
@@ -1205,154 +1155,60 @@
             updateCarousel();
           }
         });
-
-        function updateCarousel() {
-          const translateX = -currentIndex * cardWidth;
-          storiesContainer.style.transform = `translateX(${translateX}px)`;
-
-          // Hide/show buttons based on position
-          prevBtn.style.display = currentIndex === 0 ? "none" : "block";
-          nextBtn.style.display =
-            currentIndex >= storyCards - 5 ? "none" : "block";
+        
+        // Next button click
+        nextBtn.addEventListener("click", () => {
+          if (currentIndex < totalItems - visibleItems) {
+            currentIndex++;
+            updateCarousel();
+          }
+        });
+        
+        // Handle window resize
+        let resizeTimeout;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            // Recalculate dimensions
+            const newMetrics = calculateMetrics();
+            itemWidth = newMetrics.itemWidth;
+            containerWidth = newMetrics.containerWidth;
+            visibleItems = newMetrics.visibleItems;
+            totalItems = newMetrics.totalItems;
+            
+            // Adjust currentIndex if needed
+            if (currentIndex > totalItems - visibleItems) {
+              currentIndex = Math.max(0, totalItems - visibleItems);
+            }
+            
+            // Hide buttons on mobile
+            if (window.innerWidth < 768) {
+              prevBtn.style.display = "none";
+              nextBtn.style.display = "none";
+            } else {
+              updateCarousel(); // Update button visibility
+            }
+          }, 100);
+        });
+        
+        // Initial setup
+        if (window.innerWidth < 768) {
+          prevBtn.style.display = "none";
+          nextBtn.style.display = "none";
+        } else {
+          updateCarousel(); // Set initial button visibility
         }
+        
+        return { updateCarousel };
+      }
 
-        // Romance Category Carousel
-        const romanceContainer = document.getElementById("romanceContainer");
-        const romancePrevBtn = document.getElementById("romancePrevBtn");
-        const romanceNextBtn = document.getElementById("romanceNextBtn");
-        const romanceCards = document.querySelectorAll(
-          "#romanceContainer > div"
-        ).length;
-        let romanceIndex = 0;
-
-        romanceNextBtn.addEventListener("click", () => {
-          if (romanceIndex < romanceCards - 5) {
-            romanceIndex++;
-            updateRomanceCarousel();
-          }
-        });
-
-        romancePrevBtn.addEventListener("click", () => {
-          if (romanceIndex > 0) {
-            romanceIndex--;
-            updateRomanceCarousel();
-          }
-        });
-
-        function updateRomanceCarousel() {
-          const translateX = -romanceIndex * cardWidth;
-          romanceContainer.style.transform = `translateX(${translateX}px)`;
-
-          // Hide/show buttons based on position
-          romancePrevBtn.style.display = romanceIndex === 0 ? "none" : "block";
-          romanceNextBtn.style.display =
-            romanceIndex >= romanceCards - 5 ? "none" : "block";
-        }
-
-        // Open Minded Category Carousel
-        const openMindedContainer = document.getElementById(
-          "openMindedContainer"
-        );
-        const openMindedPrevBtn = document.getElementById("openMindedPrevBtn");
-        const openMindedNextBtn = document.getElementById("openMindedNextBtn");
-        const openMindedCards = document.querySelectorAll(
-          "#openMindedContainer > div"
-        ).length;
-        let openMindedIndex = 0;
-
-        openMindedNextBtn.addEventListener("click", () => {
-          if (openMindedIndex < openMindedCards - 5) {
-            openMindedIndex++;
-            updateOpenMindedCarousel();
-          }
-        });
-
-        openMindedPrevBtn.addEventListener("click", () => {
-          if (openMindedIndex > 0) {
-            openMindedIndex--;
-            updateOpenMindedCarousel();
-          }
-        });
-
-        function updateOpenMindedCarousel() {
-          const translateX = -openMindedIndex * cardWidth;
-          openMindedContainer.style.transform = `translateX(${translateX}px)`;
-
-          // Hide/show buttons based on position
-          openMindedPrevBtn.style.display =
-            openMindedIndex === 0 ? "none" : "block";
-          openMindedNextBtn.style.display =
-            openMindedIndex >= openMindedCards - 5 ? "none" : "block";
-        }
-
-        // Newly Released Category Carousel
-        const newlyReleasedContainer = document.getElementById(
-          "newlyReleasedContainer"
-        );
-        const newlyReleasedPrevBtn = document.getElementById(
-          "newlyReleasedPrevBtn"
-        );
-        const newlyReleasedNextBtn = document.getElementById(
-          "newlyReleasedNextBtn"
-        );
-        const newlyReleasedCards = document.querySelectorAll(
-          "#newlyReleasedContainer > div"
-        ).length;
-        let newlyReleasedIndex = 0;
-
-        newlyReleasedNextBtn.addEventListener("click", () => {
-          if (newlyReleasedIndex < newlyReleasedCards - 5) {
-            newlyReleasedIndex++;
-            updateNewlyReleasedCarousel();
-          }
-        });
-
-        newlyReleasedPrevBtn.addEventListener("click", () => {
-          if (newlyReleasedIndex > 0) {
-            newlyReleasedIndex--;
-            updateNewlyReleasedCarousel();
-          }
-        });
-
-        function updateNewlyReleasedCarousel() {
-          const translateX = -newlyReleasedIndex * cardWidth;
-          newlyReleasedContainer.style.transform = `translateX(${translateX}px)`;
-
-          // Hide/show buttons based on position
-          newlyReleasedPrevBtn.style.display =
-            newlyReleasedIndex === 0 ? "none" : "block";
-          newlyReleasedNextBtn.style.display =
-            newlyReleasedIndex >= newlyReleasedCards - 5 ? "none" : "block";
-        }
-
-        // Hide navigation buttons on mobile
-        function handleResize() {
-          if (window.innerWidth < 768) {
-            prevBtn.style.display = "none";
-            nextBtn.style.display = "none";
-            romancePrevBtn.style.display = "none";
-            romanceNextBtn.style.display = "none";
-            openMindedPrevBtn.style.display = "none";
-            openMindedNextBtn.style.display = "none";
-            newlyReleasedPrevBtn.style.display = "none";
-            newlyReleasedNextBtn.style.display = "none";
-          } else {
-            prevBtn.style.display = currentIndex === 0 ? "none" : "block";
-            nextBtn.style.display =
-              currentIndex >= storyCards - 5 ? "none" : "block";
-            romancePrevBtn.style.display =
-              romanceIndex === 0 ? "none" : "block";
-            romanceNextBtn.style.display =
-              romanceIndex >= romanceCards - 5 ? "none" : "block";
-            openMindedPrevBtn.style.display =
-              openMindedIndex === 0 ? "none" : "block";
-            openMindedNextBtn.style.display =
-              openMindedIndex >= openMindedCards - 5 ? "none" : "block";
-            newlyReleasedPrevBtn.style.display =
-              newlyReleasedIndex === 0 ? "none" : "block";
-            newlyReleasedNextBtn.style.display =
-              newlyReleasedIndex >= newlyReleasedCards - 5 ? "none" : "block";
-          }
-        }
-
-        window.addEventListener("resize", handleResize);\n        handleResize(); // Initial check\n        \n        // Search functionality - Added functionality to make search work\n        const searchForm = document.getElementById('searchForm');\n        const searchInput = document.getElementById('searchInput');\n        \n        searchForm.addEventListener('submit', function(e) {\n          e.preventDefault();\n          const searchTerm = searchInput.value.trim().toLowerCase();\n          \n          if (searchTerm) {\n            // Simple search implementation - in a real app, this would call an API\n            // For now, we'll just scroll to the stories section and show an alert\n            alert(`Searching for: ${searchTerm}\\nIn a full implementation, this would filter stories based on your search.`);\n            \n            // Scroll to stories section\n            document.getElementById('stories').scrollIntoView({\n              behavior: 'smooth'\n            });\n            \n            // Clear search input\n            searchInput.value = '';\n          }\n        });\n        \n        // Smooth scrolling for navigation links - Added smooth scrolling instead of jumping\n        document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {\n          anchor.addEventListener('click', function (e) {\n            e.preventDefault();\n            const targetId = this.getAttribute('href');\n            const targetElement = document.querySelector(targetId);\n            \n            if (targetElement) {\n              targetElement.scrollIntoView({\n                behavior: 'smooth',\n                block: 'start'\n              });\n            }\n          });\n        });\n      });\n    </script>\n  </body>\n</html>
+      // Initialize all carousels with both previous and next buttons
+      function initCarousels() {
+        initCarousel("storiesContainer", "prevBtn", "nextBtn");
+        initCarousel("romanceContainer", "romancePrevBtn", "romanceNextBtn");
+        initCarousel("openMindedContainer", "openMindedPrevBtn", "openMindedNextBtn");
+        initCarousel("newlyReleasedContainer", "newlyReleasedPrevBtn", "newlyReleasedNextBtn");
+      }
+    </script>
+  </body>
+</html>
