@@ -29,7 +29,10 @@ class StoriesManager {
                 'stories/whispers-of-spring.json',
                 'stories/moonlit-serenade.json',
                 'stories/oceans-secret.json',
-                'stories/digital-dreams.json'
+                'stories/digital-dreams.json',
+                'stories/eternal-love.json',
+                'stories/warriors-quest.json',
+                'stories/magical-forest.json'
             ];
             
             for (const file of storyFiles) {

@@ -22,110 +22,88 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
+        /* Header animation */
+        .reader-header {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        
+        .reader-header.visible {
+            transform: translateY(0);
+        }
+        
+        /* Chapter content styling */
+        .chapter-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 100px;
+            padding-bottom: 100px;
+        }
+        
+        .chapter-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 18px;
+        }
+    </style>
 </head>
-<body class="bg-white text-black font-inter">
-    <!-- Minimal Header -->
-    <header class="fixed top-0 w-full z-50 bg-white border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4">
-            <nav class="flex items-center justify-between h-16">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <div class="w-8 h-8">
-                        <img src="../assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
-                    </div>
-                    <span class="text-black font-bold text-lg">Micro Anime</span>
-                </div>
-                
-                <!-- Navigation Links -->
-                <div class="hidden md:flex items-center space-x-6">
-                    <a href="../index.html" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
-                        <i class="fas fa-home mr-2"></i>Home
-                    </a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <a href="../index.html" class="text-gray-600 hover:text-black">
-                        <i class="fas fa-home"></i>
-                    </a>
-                </div>
-            </nav>
+<body class="bg-white text-black font-inter no-scrollbar">
+    <!-- Dark Reader Header -->
+    <header id="readerHeader" class="reader-header fixed top-0 left-0 right-0 bg-gray-900 text-white z-50 py-3">
+        <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
+            <!-- Logo and Story Info -->
+            <div class="flex items-center space-x-3">
+                <!-- Logo links to home page (double size: 16x16 -> 32x32) -->
+                <a href="../index.html" class="w-16 h-16">
+                    <img src="../assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
+                </a>
+                <!-- Story Title links to story page -->
+                <a id="storyLink" href="#" class="hover:opacity-80">
+                    <h1 id="storyTitle" class="text-lg font-bold text-white truncate max-w-xs">Story Title</h1>
+                    <p id="chapterTitleHeader" class="text-sm text-gray-300 truncate max-w-xs">Chapter Title</p>
+                </a>
+            </div>
+            
+            <!-- Center - Episode Number -->
+            <div class="flex items-center">
+                <button id="prevChapter" class="mx-2 text-gray-300 hover:text-white">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <span id="episodeIndicator" class="mx-2 font-bold">#1</span>
+                <button id="nextChapter" class="mx-2 text-gray-300 hover:text-white">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Close button links to story page -->
+            <div>
+                <a id="closeLink" href="#" class="btn btn-sm btn-ghost text-gray-300 hover:text-white">
+                    <i class="fas fa-times"></i>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Chapter Navigation -->
-    <section class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-40">
-        <div class="max-w-7xl mx-auto px-4 py-3">
-            <div class="flex justify-between items-center">
-                <a id="prevChapter" href="#" class="btn btn-sm btn-ghost text-gray-600 hover:text-black">
-                    <i class="fas fa-arrow-left mr-2"></i>Previous
-                </a>
-                <a href="#" id="storyLink" class="btn btn-sm btn-ghost text-gray-600 hover:text-black">
-                    <i class="fas fa-book mr-2"></i>Story
-                </a>
-                <a id="nextChapter" href="#" class="btn btn-sm btn-ghost text-gray-600 hover:text-black">
-                    Next<i class="fas fa-arrow-right ml-2"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
     <!-- Chapter Content -->
-    <section class="min-h-screen py-8 px-4 mt-16 mb-20">
-        <div class="max-w-3xl mx-auto">
-            <div class="mb-8">
-                <a id="storyBreadcrumb" href="#" class="text-gray-600 hover:text-black transition-colors">
-                    <i class="fas fa-arrow-left mr-2"></i>Back to Story
-                </a>
-                <h1 id="chapterTitleHeader" class="text-3xl md:text-4xl font-bold text-black mt-2">Chapter Title</h1>
-                <div class="flex items-center mt-2">
-                    <span id="chapterNumber" class="text-gray-500">Chapter 1</span>
-                </div>
-            </div>
-            
-            <div id="chapterContent" class="prose max-w-none text-gray-800">
-                <!-- Chapter content will be loaded here -->
-            </div>
-        </div>
+    <section id="chapterContent" class="chapter-content">
+        <!-- Chapter content will be loaded here -->
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-white text-black pt-16 pb-8">
-      <div class="max-w-7xl mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <div>
-            <div class="flex items-center space-x-3 mb-6">
-                <div class="w-10 h-10">
-                    <img src="../assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
-                </div>
-                <span class="text-black font-bold text-xl">MICRO ANIME</span>
-            </div>
-            <p class="text-gray-600 mb-6 max-w-md">
-              Discover beautiful micro anime stories in bite-sized narratives. 
-              Read anytime, anywhere on any device.
-            </p>
-          </div>
-
-          <div>
-            <div class="flex flex-wrap gap-6">
-              <a href="#" class="text-gray-600 hover:text-black transition-colors">Terms of Service</a>
-              <a href="#" class="text-gray-600 hover:text-black transition-colors">Privacy Policy</a>
-              <a href="#" class="text-gray-600 hover:text-black transition-colors">Advertising</a>
-              <a href="#" class="text-gray-600 hover:text-black transition-colors">Contact</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="border-t border-gray-200 pt-8 text-center">
-          <p class="text-gray-500 text-sm">
-            &copy; 2025 Micro Anime. All rights reserved. This site is not
-            affiliated with any anime studios.
-          </p>
-        </div>
-      </div>
-    </footer>
-
-    <script type=\"module\">
+    <script type="module">
         // Wait for DOM to be loaded
         document.addEventListener('DOMContentLoaded', async () => {
             // Get story ID and chapter index from URL
@@ -134,25 +112,38 @@
             const chapterIndex = parseInt(urlParams.get('chapter'));
             
             if (!storyId || isNaN(chapterIndex)) {
-                // Show error instead of redirecting
-                document.getElementById('chapterTitleHeader').textContent = 'Chapter Not Found';
-                document.getElementById('chapterContent').innerHTML = '<p>Sorry, we couldn\\'t find the requested chapter. Please go back to the story page.</p>';
+                // Show error
+                document.getElementById('chapterContent').innerHTML = `
+                    <div class="text-center py-20">
+                        <h2 class="text-2xl font-bold text-black mb-4">Chapter Not Found</h2>
+                        <p class="text-gray-600 mb-6">Sorry, we couldn't find the requested chapter.</p>
+                        <a href="../index.html" class="btn btn-primary">Go Home</a>
+                    </div>
+                `;
                 return;
             }
             
             // Load story data
             try {
-                const response = await fetch(`../stories/${storyId}.json`);
+                const storyPath = `../stories/${storyId}.json`;
+                const response = await fetch(storyPath);
+                
                 if (!response.ok) {
-                    throw new Error(`Story not found: ${storyId}`);
+                    throw new Error(`Story not found: ${storyId} (Status: ${response.status})`);
                 }
+                
                 const storyData = await response.json();
                 
                 // Check if chapter exists
                 if (chapterIndex < 0 || chapterIndex >= storyData.chapters.length) {
-                    // Show error instead of redirecting
-                    document.getElementById('chapterTitleHeader').textContent = 'Chapter Not Found';
-                    document.getElementById('chapterContent').innerHTML = '<p>Sorry, this chapter doesn\\'t exist. Please go back to the story page to select a valid chapter.</p>';
+                    // Show error
+                    document.getElementById('chapterContent').innerHTML = `
+                        <div class="text-center py-20">
+                            <h2 class="text-2xl font-bold text-black mb-4">Chapter Not Found</h2>
+                            <p class="text-gray-600 mb-6">Sorry, this chapter doesn't exist.</p>
+                            <a href="story.html?id=${storyId}" class="btn btn-primary">Back to Story</a>
+                        </div>
+                    `;
                     return;
                 }
                 
@@ -160,37 +151,116 @@
                 
                 // Update page title and header
                 document.title = `${chapter.title} - ${storyData.title} - Micro Anime`;
+                document.getElementById('storyTitle').textContent = storyData.title;
                 document.getElementById('chapterTitleHeader').textContent = chapter.title;
-                document.getElementById('chapterNumber').textContent = `Chapter ${chapterIndex + 1}`;
+                document.getElementById('episodeIndicator').textContent = `#${chapterIndex + 1}`;
+                
+                // Set up links
+                const storyPageUrl = `story.html?id=${storyId}`;
+                document.getElementById('storyLink').href = storyPageUrl;
+                document.getElementById('closeLink').href = storyPageUrl;
                 
                 // Update chapter content
                 document.getElementById('chapterContent').innerHTML = chapter.content;
                 
-                // Update navigation links
-                document.getElementById('storyLink').href = `story.html?id=${storyId}`;
-                document.getElementById('storyBreadcrumb').href = `story.html?id=${storyId}`;
+                // Set up navigation
+                const prevChapterBtn = document.getElementById('prevChapter');
+                const nextChapterBtn = document.getElementById('nextChapter');
                 
-                // Update previous/next chapter links
-                const prevChapterLink = document.getElementById('prevChapter');
-                const nextChapterLink = document.getElementById('nextChapter');
-                
+                // Previous chapter
                 if (chapterIndex > 0) {
-                    prevChapterLink.href = `chapter.html?story=${storyId}&chapter=${chapterIndex - 1}`;
+                    prevChapterBtn.addEventListener('click', () => {
+                        window.location.href = `chapter.html?story=${storyId}&chapter=${chapterIndex - 1}`;
+                    });
                 } else {
-                    prevChapterLink.classList.add('hidden');
+                    prevChapterBtn.classList.add('text-gray-600');
+                    prevChapterBtn.disabled = true;
                 }
                 
+                // Next chapter
                 if (chapterIndex < storyData.chapters.length - 1) {
-                    nextChapterLink.href = `chapter.html?story=${storyId}&chapter=${chapterIndex + 1}`;
+                    nextChapterBtn.addEventListener('click', () => {
+                        window.location.href = `chapter.html?story=${storyId}&chapter=${chapterIndex + 1}`;
+                    });
                 } else {
-                    nextChapterLink.classList.add('hidden');
+                    nextChapterBtn.classList.add('text-gray-600');
+                    nextChapterBtn.disabled = true;
                 }
+                
+                // Initialize UI
+                setupEventListeners();
+                
+                // Show header initially
+                showHeader();
                 
             } catch (error) {
                 console.error('Error loading chapter:', error);
-                // Show error instead of redirecting
-                document.getElementById('chapterTitleHeader').textContent = 'Chapter Not Found';
-                document.getElementById('chapterContent').innerHTML = '<p>Sorry, we couldn\\'t load the requested chapter. Please go back to the story page.</p>';
+                // Show error
+                document.getElementById('chapterContent').innerHTML = `
+                    <div class="text-center py-20">
+                        <h2 class="text-2xl font-bold text-black mb-4">Error Loading Chapter</h2>
+                        <p class="text-gray-600 mb-6">Sorry, we couldn't load the requested chapter. Please try again later.</p>
+                        <p class="text-red-500 text-sm mb-4">Error: ${error.message}</p>
+                        <a href="story.html?id=${storyId}" class="btn btn-primary">Back to Story</a>
+                    </div>
+                `;
+            }
+            
+            // Set up event listeners
+            function setupEventListeners() {
+                // Header visibility on scroll and mouse move
+                let headerVisible = false;
+                let hideTimeout;
+                
+                // Show header on mouse move at top of screen
+                document.addEventListener('mousemove', (e) => {
+                    if (e.clientY < 100) {
+                        showHeader();
+                        clearTimeout(hideTimeout);
+                        hideTimeout = setTimeout(hideHeader, 3000);
+                    }
+                });
+                
+                // Show header on touch at top of screen
+                document.addEventListener('touchstart', (e) => {
+                    if (e.touches[0].clientY < 100) {
+                        showHeader();
+                        clearTimeout(hideTimeout);
+                        hideTimeout = setTimeout(hideHeader, 3000);
+                    }
+                });
+                
+                // Show header when scrolling
+                let lastScrollY = window.scrollY;
+                window.addEventListener('scroll', () => {
+                    const currentScrollY = window.scrollY;
+                    
+                    // Show header when scrolling up or at top of page
+                    if (currentScrollY < lastScrollY || currentScrollY < 100) {
+                        showHeader();
+                        clearTimeout(hideTimeout);
+                        hideTimeout = setTimeout(hideHeader, 3000);
+                    } else if (currentScrollY > lastScrollY) {
+                        // Hide header when scrolling down
+                        hideHeader();
+                    }
+                    
+                    lastScrollY = currentScrollY;
+                });
+                
+                // Show header initially and hide after delay
+                showHeader();
+                hideTimeout = setTimeout(hideHeader, 3000);
+            }
+            
+            // Show header
+            function showHeader() {
+                document.getElementById('readerHeader').classList.add('visible');
+            }
+            
+            // Hide header
+            function hideHeader() {
+                document.getElementById('readerHeader').classList.remove('visible');
             }
         });
     </script>
