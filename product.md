@@ -52,28 +52,140 @@ Micro Anime is a modern web platform dedicated to delivering micro anime stories
 
 ## Project Structure
 ```
-micro-anime/
+anime-project/
 ├── public/
 │   ├── index.html
 │   ├── login.html
 │   ├── register.html
 │   ├── dashboard.html
 │   ├── assets/
-│   │   ├── 1754822716.png
-│   │   ├── 1754822762.png
-│   │   ├── 1754822821.png
-│   │   ├── 1754822875.png
-│   │   ├── 1754823013.png
-│   │   ├── 1754823073.png
-│   │   ├── 1754823196.png
-│   │   ├── 1754823273.png
-│   │   └── 1754823320.png
+│   │   ├── favicon.png
+│   │   └── ...
 │   ├── css/
 │   │   └── styles.css
-│   └── js/
-│       ├── auth.js
-│       ├── stories.js
-│       └── dashboard.js
+│   ├── js/
+│   │   ├── auth.js
+│   │   ├── stories.js
+│   │   ├── dashboard.js
+│   │   └── firebase/
+│   │       └── config.js
+│   ├── stories/
+│   │   ├── Action/
+│   │   │   ├── beginning-again/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── blade-justice/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── guardians-path/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── neon-warrior/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── new-beginnings/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── shadow-strike/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── storm-breaker/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── warriors-quest/
+│   │   │       ├── cover.png
+│   │   │       └── story.json
+│   │   ├── Adventure/
+│   │   │   ├── lost-treasure/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── quest-for-the-crystal/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── the-explorer/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── treasure-hunt/
+│   │   │       ├── cover.png
+│   │   │       └── story.json
+│   │   ├── Dark Romance/
+│   │   │   ├── midnight-whispers/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── forbidden-desire/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── dark-hearts/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── twilight-love/
+│   │   │       ├── cover.png
+│   │   │       └── story.json
+│   │   ├── Fantasy/
+│   │   │   ├── magical-forest/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── dragon-whisperer/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── crystal-chronicles/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── enchanted-grove/
+│   │   │       ├── cover.png
+│   │   │       └── story.json
+│   │   ├── Open Minded/
+│   │   │   ├── mind-expansion/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── consciousness-shift/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── quantum-leap/
+│   │   │       ├── cover.png
+│   │   │       └── story.json
+│   │   ├── Romance/
+│   │   │   ├── eternal-love/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── forbidden-love/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── heart-of-gold/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── star-crossed/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── love-beyond-time/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── dreams-of-you/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── secret-admirer/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── the-last-sakura/
+│   │   │       ├── cover.png
+│   │   │       └── story.json
+│   │   ├── Sci-Fi/
+│   │   │   ├── neon-cyber/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── time-traveler/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── space-odyssey/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── robot-rebellion/
+│   │   │       ├── cover.png
+│   │   │       └── story.json
+│   │   └── ...
+│   └── story/
+│       ├── story.html
+│       └── chapter.html
 ├── src/
 │   ├── firebase/
 │   │   └── config.js
@@ -81,6 +193,8 @@ micro-anime/
 ├── package.json
 ├── tailwind.config.js
 ├── firebase.json
+├── firestore.rules
+├── firestore.indexes.json
 └── product.md
 ```
 

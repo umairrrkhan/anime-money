@@ -52,17 +52,13 @@ A modern, high-performance web platform for discovering and reading micro anime 
 ## 🏗️ Project Structure
 
 ```
-micro-anime/
+anime-project/
 ├── public/
 │   ├── index.html              # Main landing page
 │   ├── login.html              # User login page
 │   ├── register.html           # User registration page
 │   ├── dashboard.html          # User dashboard page
 │   ├── assets/                 # Image assets and favicon
-│   │   ├── action/             # Action genre images
-│   │   ├── romance/            # Romance genre images
-│   │   ├── openminded/         # Open Minded genre images
-│   │   ├── dark romance/       # Dark Romance genre images
 │   │   ├── favicon.png         # Site favicon
 │   │   └── logo.png            # Site logo
 │   ├── css/
@@ -73,16 +69,49 @@ micro-anime/
 │   │   ├── dashboard.js        # User dashboard functionality
 │   │   └── firebase/
 │   │       └── config.js       # Firebase configuration
-│   ├── stories/                # Story data in JSON format
-│   │   ├── the-last-sakura.json
-│   │   ├── guardians-path.json
-│   │   ├── whispers-of-spring.json
-│   │   ├── moonlit-serenade.json
-│   │   ├── digital-dreams.json
-│   │   ├── oceans-secret.json
-│   │   ├── eternal-love.json
-│   │   ├── warriors-quest.json
-│   │   └── magical-forest.json
+│   ├── stories/                # Story data organized by genre
+│   │   ├── Action/             # Action genre stories
+│   │   │   ├── beginning-again/
+│   │   │   │   ├── cover.png   # Story cover image
+│   │   │   │   └── story.json  # Story metadata and content
+│   │   │   ├── blade-justice/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── ...             # Additional Action stories
+│   │   ├── Adventure/          # Adventure genre stories
+│   │   │   ├── lost-treasure/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── ...             # Additional Adventure stories
+│   │   ├── Dark Romance/       # Dark Romance genre stories
+│   │   │   ├── midnight-whispers/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── ...             # Additional Dark Romance stories
+│   │   ├── Fantasy/            # Fantasy genre stories
+│   │   │   ├── magical-forest/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── ...             # Additional Fantasy stories
+│   │   ├── Open Minded/        # Open Minded genre stories
+│   │   │   ├── mind-expansion/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── ...             # Additional Open Minded stories
+│   │   ├── Romance/            # Romance genre stories
+│   │   │   ├── the-last-sakura/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   ├── eternal-love/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── ...             # Additional Romance stories
+│   │   ├── Sci-Fi/             # Sci-Fi genre stories
+│   │   │   ├── neon-cyber/
+│   │   │   │   ├── cover.png
+│   │   │   │   └── story.json
+│   │   │   └── ...             # Additional Sci-Fi stories
+│   │   └── ...                 # Additional genre folders
 │   └── story/                  # Story and chapter pages
 │       ├── story.html          # Story listing page
 │       └── chapter.html        # Individual chapter page
@@ -99,28 +128,14 @@ micro-anime/
 └── README.md                   # This file
 ```
 
-## 🏗️ Proposed Future Structure for Stories
+## 🏗️ Current Story Structure
 
-To improve organization and maintainability, we plan to restructure the stories directory to group all story-related materials together:
+The stories are currently organized by genre in the `public/stories` directory. Each story has its own folder containing:
 
-```
-public/
-├── stories/                    # Restructured story organization (planned)
-│   ├── the-last-sakura/        # All materials for "The Last Sakura" story
-│   │   ├── story.json          # Story metadata and content
-│   │   ├── cover.png           # Story cover image
-│   │   ├── chapter-1.html      # First chapter content
-│   │   ├── chapter-2.html      # Second chapter content
-│   │   └── chapter-3.html      # Third chapter content
-│   ├── guardians-path/         # All materials for "Guardian's Path" story
-│   │   ├── story.json          # Story metadata and content
-│   │   ├── cover.png           # Story cover image
-│   │   ├── chapter-1.html      # First chapter content
-│   │   └── ...                 # Additional chapters
-│   └── ...                     # Additional stories
-```
+- `story.json` - Story metadata and content
+- `cover.png` - Story cover image
 
-This structure will group all materials related to each story (content, images, etc.) in a single folder, making it easier to manage and understand.
+This structure groups all materials related to each story (content, images, etc.) in a single folder, making it easier to manage and understand.
 
 ## 🎨 Design System
 

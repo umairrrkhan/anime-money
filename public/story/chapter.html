@@ -125,14 +125,36 @@
             
             // Load story data
             try {
-                const storyPath = `../stories/${storyId}.json`;
-                const response = await fetch(storyPath);
+                // We need to find the correct path for the story JSON file
+                // The structure is stories/{genre}/{story-id}/story.json
+                // Since we don't know the genre, we need to check all possible paths
                 
-                if (!response.ok) {
-                    throw new Error(`Story not found: ${storyId} (Status: ${response.status})`);
+                // List of all genres
+                const genres = ['Action', 'Adventure', 'Dark Romance', 'Fantasy', 'Open Minded', 'Romance', 'Sci-Fi'];
+                
+                let storyData = null;
+                let storyPath = '';
+                
+                // Try to find the story in any genre folder
+                for (const genre of genres) {
+                    try {
+                        const path = `../stories/${genre}/${storyId}/story.json`;
+                        const response = await fetch(path);
+                        if (response.ok) {
+                            storyData = await response.json();
+                            storyPath = path;
+                            break;
+                        }
+                    } catch (e) {
+                        // Continue to next genre if this one doesn't have the story
+                        continue;
+                    }
                 }
                 
-                const storyData = await response.json();
+                // If we couldn't find the story in any genre folder
+                if (!storyData) {
+                    throw new Error(`Story not found in any genre folder`);
+                }
                 
                 // Check if chapter exists
                 if (chapterIndex < 0 || chapterIndex >= storyData.chapters.length) {
