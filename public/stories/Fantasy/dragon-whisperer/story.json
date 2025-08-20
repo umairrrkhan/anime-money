@@ -1,0 +1,19 @@
+{
+  "id": "dragon-whisperer",
+  "title": "Dragon Whisperer",
+  "author": "Aria Stormwind",
+  "genre": "Fantasy",
+  "readTime": 14,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Last Dragon Egg",
+      "content": "<p>In a world where dragons had been extinct for centuries, young Kira discovered a hidden cave containing the last dragon egg, which had been magically preserved by ancient dragon mages.</p><p>When the egg hatched, Kira found herself bonded to the baby dragon, becoming its 'whisperer' - the only one who could communicate with it telepathically. But this connection also made them both targets of those who sought to exploit the dragon's powers.</p><p>As Kira and her dragon companion grew stronger together, she learned about the Great Dragon War that had led to their species' extinction and the responsibility that came with being the last of their kind.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Wings of Destiny",
+      "content": "<p>When an ancient evil that had caused the dragons' extinction began to awaken, Kira and her dragon partner had to gather the scattered dragon artifacts hidden across the realm to prepare for the coming battle.</p><p>Traveling to the mystical Dragon Isles, they faced trials that tested not only their combat skills but their bond of trust and friendship. Kira discovered that being a dragon whisperer meant more than just communication - it meant understanding and protecting her companion at all costs.</p><p>In the final confrontation, Kira and her dragon merged their essences temporarily to unleash the full power of dragon magic, defeating the ancient evil and ensuring that dragons could once again thrive in the world.</p>"
+    }
+  ]
+}

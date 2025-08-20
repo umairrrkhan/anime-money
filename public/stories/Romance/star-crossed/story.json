@@ -1,0 +1,19 @@
+{
+  "id": "star-crossed",
+  "title": "Star Crossed",
+  "author": "Akira Tanaka",
+  "genre": "Romance",
+  "readTime": 14,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "Fate's Design",
+      "content": "<p>Ryuki and Akari were born on the same day in neighboring hospitals, but their families had been rivals for generations. The Yamamoto and Tanaka families had been competing in business and social circles for decades, making any relationship between their children strictly forbidden.</p><p>Despite this, Ryuki and Akari met by chance at a university library and felt an instant connection. They began meeting in secret, knowing that their love was against everything their families believed in.</p><p>\"The stars aligned for us to meet,\" Akari whispered as they watched the night sky from their secret spot on the university rooftop. \"Maybe fate has a different plan for us than our families do.\"</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Love Conquers All",
+      "content": "<p>When their families discovered their relationship, both Ryuki and Akari were pressured to end it. Their parents arranged separate business trips overseas, hoping distance would sever their bond.</p><p>But true love couldn't be extinguished so easily. Ryuki and Akari made a pact to meet in Paris, where they would declare their love to the world and prove that their connection was stronger than any family feud.</p><p>Under the Eiffel Tower, they exchanged vows in a simple but heartfelt ceremony, surrounded only by the stars that had brought them together. Their families eventually came to accept their love, realizing that the next generation deserved to write their own story.</p><p>\"We may have been star-crossed at first,\" Ryuki said, \"but we chose to become star-aligned.\"</p>"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "beginning-again",
+  "title": "Beginning Again",
+  "author": "Daiki Sato",
+  "genre": "Action",
+  "readTime": 15,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Fall",
+      "content": "<p>Master Hiroshi had been the most respected martial arts instructor in the city, but a scandal involving a corrupt student had damaged his reputation. Despite his innocence, he was forced to close his dojo and retreat from public life.</p><p>Years later, a young girl named Mei approached him, asking for help. Her brother had been captured by a gang that was terrorizing the neighborhood, and the police seemed unable or unwilling to help.</p><p>\"I know you've been through a lot,\" Mei said, tears in her eyes. \"But my brother is all I have left.\"</p><p>Hiroshi looked at the determination in her eyes and remembered why he had become a martial artist in the first place - to protect the innocent.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Redemption",
+      "content": "<p>Hiroshi trained Mei in basic self-defense while planning a rescue mission for her brother. Together, they infiltrated the gang's hideout, using strategy and skill rather than brute force.</p><p>In the final confrontation with the gang leader, Hiroshi had the chance for revenge against those who had wronged him, but he chose a different path.</p><p>\"I won't become what I've always fought against,\" he declared, subduing the leader without causing permanent harm.</p><p>With the gang disbanded and her brother safe, Mei asked Hiroshi to teach her more. Inspired by her faith in him, Hiroshi decided to reopen his dojo, this time with a focus on character development alongside martial skills.</p><p>\"Some things are worth beginning again,\" he said as he hung a new sign above the dojo entrance.</p>"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "starfall-prophecy",
+  "title": "Starfall Prophecy",
+  "author": "Celeste Stardust",
+  "genre": "Fantasy",
+  "readTime": 16,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Falling Star",
+      "content": "<p>When a star fell from the heavens and crashed near her village, young astronomer Lyra was the first to reach the impact site. Instead of a meteorite, she found a crystalline shard that pulsed with otherworldly energy and seemed to whisper her name.</p><p>As she touched the shard, Lyra was flooded with visions of an ancient prophecy - a time when the celestial barriers between worlds would weaken, allowing both wonder and terror to spill into the mortal realm.</p><p>The shard had chosen her as the Starkeeper, tasked with preventing an interdimensional war that could destroy all existence. But to fulfill her destiny, she would need to leave everything she knew behind.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Cosmic Convergence",
+      "content": "<p>Guided by the shard's whispers, Lyra traveled to the Observatory of Echoes, where ancient astronomers had recorded prophecies about the starfall. There, she learned that similar shards had fallen across the world, each choosing a different guardian to protect a specific aspect of reality.</p><p>As the prophesied convergence approached, Lyra had to unite with the other Starkeepers to form a constellation of power that could reinforce the barriers between worlds. But a rogue Starkeeper, corrupted by the shards' energy, sought to tear down those barriers permanently.</p><p>In a battle that raged across multiple dimensions, Lyra learned that true cosmic power came not from controlling the stars, but from harmony with them. Her acceptance of this truth allowed her to restore balance and save existence itself.</p>"
+    }
+  ]
+}

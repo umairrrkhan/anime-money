@@ -1,0 +1,19 @@
+{
+  "id": "thorned-roses",
+  "title": "Thorned Roses",
+  "author": "Mika Hayashi",
+  "genre": "Dark Romance",
+  "readTime": 19,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Vengeful Spirit",
+      "content": "<p>Sakura had died a tragic death a century ago, murdered by her lover's jealous wife. Bound to the mortal realm by her desire for justice and vengeance, she had spent decades tormenting those who wronged her descendants.</p><p>But when she encountered Kenji, a modern-day descendant of her killer, something unexpected happened - instead of seeking revenge, she found herself drawn to his kind heart and genuine goodness. As she watched him help others selflessly, her thirst for vengeance began to fade.</p><p>Torn between her centuries-old need for justice and her newfound feelings for Kenji, Sakura faced a choice that would determine both their fates.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Redemption's Kiss",
+      "content": "<p>Kenji, initially terrified of Sakura's supernatural presence, gradually came to understand her pain and loneliness. As he learned about her tragic past, his fear turned to compassion and eventually love.</p><p>When Sakura's former enemy, the reincarnation of the woman who had murdered her, appeared to finish what she had started, Kenji had to protect not only Sakura but also the innocent people caught in the crossfire of their supernatural conflict.</p><p>In the end, Sakura's love for Kenji gave her the strength to forgive her ancient enemy and finally move on to the afterlife, leaving Kenji heartbroken but grateful for having experienced a love that transcended death itself.</p>"
+    }
+  ]
+}

@@ -44,18 +44,22 @@
     
     <style>
         .hero-image {
+            width: 1890px;
             height: 400px;
             background-size: cover;
             background-position: center;
             position: relative;
+            margin: 0 auto;
         }
         
         .hero-overlay {
             background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0) 100%);
+            border-radius: 0;
         }
         
         .story-layout {
             transform: translateY(-80px);
+            border-radius: 0;
         }
         
         /* Anime-inspired professional typography */
@@ -85,6 +89,7 @@
             border: 2px solid;
             position: relative;
             overflow: hidden;
+            border-radius: 0;
         }
         
         .genre-tag::before {
@@ -184,28 +189,31 @@
     </style>
 </head>
 <body class="bg-base-200 text-base-content font-inter">
-    <!-- Universal Header -->
-    <header class="fixed top-4 left-1/2 transform -translate-x-1/2 w-11/12 z-50 rounded-full bg-base-100/80 backdrop-blur-lg border border-base-200 shadow-lg">
-        <div class="max-w-7xl mx-auto px-6">
+    <!-- Content Header -->
+    <header class="bg-white border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <nav class="flex items-center justify-between h-16">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3">
-                    <div class="w-12 h-12">
+                    <div class="w-10 h-10">
                         <img src="../assets/logo.png" alt="MicroAnime Logo" class="w-full h-full">
                     </div>
+                    <span class="text-black font-bold text-xl">MICRO ANIME</span>
                 </div>
                 
-                <!-- Navigation Links -->
-                <div class="hidden md:flex items-center space-x-6">
+                <!-- Quick Links -->
+                <div class="flex items-center space-x-6">
                     <a href="../index.html" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
-                    Home
-                    </a>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <a href="../index.html" class="text-gray-600 hover:text-black">
                         Home
+                    </a>
+                    <a href="../dashboard.html" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        Dashboard
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        Stories
+                    </a>
+                    <a href="#" class="text-gray-600 hover:text-black transition-colors duration-200 font-medium">
+                        About
                     </a>
                 </div>
             </nav>
@@ -213,22 +221,22 @@
     </header>
 
     <!-- Hero Section with Image -->
-    <section class="mt-4">
+    <section class="mt-0">
         <!-- Hero Image -->
-        <div id="heroImage" class="hero-image w-full rounded-b-3xl">
-            <div class="hero-overlay absolute inset-0 rounded-b-3xl"></div>
+        <div id="heroImage" class="hero-image w-full">
+            <div class="hero-overlay absolute inset-0"></div>
         </div>
         
         <!-- Story Content -->
         <div class="max-w-7xl mx-auto px-4">
-            <div class="story-layout bg-base-100 p-6 md:p-8 max-w-6xl mx-auto rounded-2xl">
+            <div class="story-layout bg-base-100 p-6 md:p-8 max-w-6xl mx-auto">
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Left Column - Main Content -->
                     <div class="lg:col-span-2">
                         <h1 id="storyTitleHeader" class="text-3xl md:text-4xl anime-title text-gray-900 mb-4">Story Title</h1>
                         
                         <div class="flex items-center gap-4 mb-6 text-sm text-gray-600">
-                            <span id="storyGenre" class="genre-tag px-3 py-1 rounded-full text-xs font-semibold animate-pulse"></span>
+                            <span id="storyGenre" class="genre-tag px-3 py-1 text-xs font-semibold animate-pulse"></span>
                             <span class="text-gray-400">•</span>
                             <span id="storyReadTime">0 min read</span>
                         </div>
@@ -238,7 +246,7 @@
                             <div class="w-12 h-12 rounded-full overflow-hidden">
                                 <div class="tenor-gif-embed" data-postid="17864924" data-share-method="host" data-aspect-ratio="1.00946" data-width="100%"></div>
                             </div>
-                            <button id="shareButton" class="share-button px-4 py-2 rounded flex items-center gap-2">
+                            <button id="shareButton" class="share-button px-4 py-2 flex items-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
                                 </svg>
@@ -247,7 +255,8 @@
                         </div>
                         
                         <!-- Episodes List -->
-                        <div class="border-t border-base-200 pt-6">
+                        <div class="border-t-4 border-gray-800 pt-8 mt-8">
+                            <div class="h-2"></div>
                             <div id="chaptersList" class="space-y-4">
                                 <!-- Episodes will be loaded here -->
                             </div>
@@ -344,20 +353,64 @@
                 return;
             }
             
-            // Map story IDs to image assets
-            const storyImages = {
-                'the-last-sakura': '../assets/1754822716.png',
-                'guardians-path': '../assets/1754822762.png',
-                'whispers-of-spring': '../assets/1754822821.png',
-                'moonlit-serenade': '../assets/1754822875.png',
-                'digital-dreams': '../assets/1754823013.png',
-                'oceans-secret': '../assets/1754823073.png'
+            // Set hero image from the correct path
+            // Images are stored in stories/{genre}/{story-folder}/baner.png or cover.png
+            const storyImagePaths = {
+                'the-last-sakura': '../stories/Romance/the-last-sakura/baner.png',
+                'guardians-path': '../stories/Action/guardians-path/baner.png',
+                'whispers-of-spring': '../stories/Fantasy/whispers-of-spring/baner.png',
+                'digital-dreams': '../stories/Sci-Fi/digital-dreams/baner.png',
+                'oceans-secret': '../stories/Adventure/oceans-secret/baner.png',
+                'beginning-again': '../stories/Action/beginning-again/baner.png',
+                'blade-justice': '../stories/Action/blade-justice/baner.png',
+                'neon-warrior': '../stories/Action/neon-warrior/baner.png',
+                'new-beginnings': '../stories/Action/new-beginnings/baner.png',
+                'shadow-strike': '../stories/Action/shadow-strike/baner.png',
+                'storm-breaker': '../stories/Action/storm-breaker/baner.png',
+                'warriors-quest': '../stories/Action/warriors-quest/baner.png',
+                'eternal-love': '../stories/Romance/eternal-love/baner.png',
+                'forbidden-love': '../stories/Romance/forbidden-love/baner.png',
+                'heart-of-gold': '../stories/Romance/heart-of-gold/baner.png',
+                'star-crossed': '../stories/Romance/star-crossed/baner.png',
+                'love-beyond-time': '../stories/Romance/love-beyond-time/baner.png',
+                'dreams-of-you': '../stories/Romance/dreams-of-you/baner.png',
+                'secret-admirer': '../stories/Romance/secret-admirer/baner.png',
+                'midnight-whispers': '../stories/Dark Romance/midnight-whispers/baner.png',
+                'magical-forest': '../stories/Fantasy/magical-forest/baner.png',
+                'mind-expansion': '../stories/Open Minded/mind-expansion/baner.png',
+                'consciousness-shift': '../stories/Open Minded/consciousness-shift/baner.png',
+                'quantum-leap': '../stories/Open Minded/quantum-leap/baner.png',
+                'newly-released-story': '../stories/Action/newly-released-story/baner.png'
             };
             
             // Set hero image
             const heroImage = document.getElementById('heroImage');
-            if (storyImages[storyId]) {
-                heroImage.style.backgroundImage = `url(${storyImages[storyId]})`;
+            if (storyImagePaths[storyId]) {
+                // Try banner first, fallback to cover if banner doesn't exist
+                const bannerPath = storyImagePaths[storyId];
+                const coverPath = bannerPath.replace('baner.png', 'cover.png');
+                
+                // Create a new image to test if banner exists
+                const img = new Image();
+                img.onload = function() {
+                    heroImage.style.backgroundImage = `url(${bannerPath})`;
+                };
+                img.onerror = function() {
+                    // If banner doesn't exist, try cover
+                    const coverImg = new Image();
+                    coverImg.onload = function() {
+                        heroImage.style.backgroundImage = `url(${coverPath})`;
+                    };
+                    coverImg.onerror = function() {
+                        // If neither exists, use default
+                        heroImage.style.backgroundImage = 'url(../assets/logo.png)';
+                    };
+                    coverImg.src = coverPath;
+                };
+                img.src = bannerPath;
+            } else {
+                // Fallback to default if story ID not in our mapping
+                heroImage.style.backgroundImage = 'url(../assets/logo.png)';
             }
             
             // Story summaries
@@ -365,7 +418,6 @@
                 'the-last-sakura': 'A touching tale of love and loss centered around an ancient sakura tree that blooms for the final time. Akira revisits the tree where he first met his beloved Hana, reflecting on their life together and the promise he couldn\'t keep.',
                 'guardians-path': 'In a world where the barrier between realms is crumbling, young Riku must embrace his role as a guardian to protect both the spirit realm and the living world from encroaching darkness.',
                 'whispers-of-spring': 'Mei discovers a magical garden that exists between dreams and reality, where memories take the form of flowers and her grandmother\'s legacy blooms anew.',
-                'moonlit-serenade': 'A musician\'s journey to find inspiration in the most unexpected places, guided by the gentle melodies of the night.',
                 'digital-dreams': 'In a futuristic world where virtual reality has become indistinguishable from reality, one programmer discovers a glitch that might be more than just a bug.',
                 'oceans-secret': 'An underwater adventure following a young explorer who uncovers ancient secrets hidden in the depths of the ocean.'
             };
@@ -375,7 +427,6 @@
                 'the-last-sakura': '#1',
                 'guardians-path': '#3',
                 'whispers-of-spring': '#2',
-                'moonlit-serenade': '#5',
                 'digital-dreams': '#4',
                 'oceans-secret': '#6'
             };
@@ -430,7 +481,7 @@
                     genreElement.textContent = storyData.genre;
                     // Add genre-specific styling
                     const genreClass = `genre-${storyData.genre.toLowerCase()}`.replace(/[^a-z0-9-]/g, '');
-                    genreElement.className = `genre-tag px-3 py-1 rounded-full text-xs font-semibold ${genreClass}`;
+                            genreElement.className = `genre-tag px-3 py-1 text-xs font-semibold ${genreClass}`;
                 }
                 
                 // Update summary

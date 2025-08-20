@@ -1,0 +1,19 @@
+{
+  "id": "new-beginnings",
+  "title": "New Beginnings",
+  "author": "Kenji Yamamoto",
+  "genre": "Action",
+  "readTime": 13,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Challenge",
+      "content": "<p>Ryu had been the undisputed champion of the underground fighting circuit for three years, but he was growing tired of the endless battles. When a new fighter named Kazuki arrived with a reputation for never losing, Ryu saw a chance for a worthy challenge.</p><p>\"I've heard you're the best,\" Kazuki said during their first meeting. \"But I didn't come here to hear about your past victories. I came to create my own legend.\"</p><p>The crowd gathered as the two fighters faced off, both knowing this would be a battle that would determine the future of the circuit.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Victory and Vision",
+      "content": "<p>The fight was intense, with both fighters displaying incredible skill and determination. In the end, Ryu emerged victorious, but instead of feeling triumphant, he felt a sense of emptiness.</p><p>Kazuki, despite his loss, approached Ryu with respect. \"You've earned your title, but I'll be back stronger.\"</p><p>Ryu realized that true strength wasn't just about winning fights, but about inspiring others to grow. He decided to retire from fighting and open a dojo to teach young fighters not just combat skills, but honor and discipline.</p><p>\"Every ending is a new beginning,\" Ryu told his first students. \"Let's make it a meaningful one.\"</p>"
+    }
+  ]
+}

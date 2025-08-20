@@ -1,0 +1,19 @@
+{
+  "id": "midnight-confessions",
+  "title": "Midnight Confessions",
+  "author": "Haruki Tanaka",
+  "genre": "Dark Romance",
+  "readTime": 15,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Psychiatrist's Patient",
+      "content": "<p>Dr. Aiko specialized in treating patients with severe psychological disorders, but her latest case was unlike any she had encountered before. Her patient, Kaito, suffered from a rare condition that caused him to black out and commit violent acts without memory of what he had done.</p><p>As Aiko delved deeper into Kaito's psyche during their therapy sessions, she found herself drawn to his vulnerability and tortured soul. Despite knowing the danger, she began to develop feelings for him that went beyond professional boundaries.</p><p>When a series of brutal murders occurred in the city, all bearing the same signature as Kaito's blackouts, Aiko faced an impossible choice between her duty and her heart.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "The Truth Unveiled",
+      "content": "<p>Aiko discovered that Kaito was innocent of the recent murders - someone else had been mimicking his pattern to frame him. But in trying to protect him, she had inadvertently put herself in the path of the real killer.</p><p>In a terrifying confrontation, Aiko found herself at the mercy of a deranged patient who had been obsessed with her. Kaito, regaining consciousness at the crucial moment, fought to save her life despite his weakened state.</p><p>As they recovered together in the hospital, Aiko and Kaito confessed their love for each other, knowing that their relationship would never be conventional but was real and precious nonetheless.</p>"
+    }
+  ]
+}

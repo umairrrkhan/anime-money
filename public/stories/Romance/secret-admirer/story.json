@@ -1,0 +1,19 @@
+{
+  "id": "secret-admirer",
+  "title": "Secret Admirer",
+  "author": "Hana Sato",
+  "genre": "Romance",
+  "readTime": 9,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "Mysterious Notes",
+      "content": "<p>Natsuki found the first note in her locker: \"Your smile brightens even the cloudiest days.\" She looked around but saw no one who might have left it.</p><p>Over the following weeks, more notes appeared in unexpected places, always with sweet and thoughtful messages. Natsuki began to wonder who her secret admirer could be.</p><p>Her friend Yuki suggested it might be Hiroshi, the quiet boy who always seemed to be nearby but never spoke to her directly.</p><p>\"Maybe it's someone who's too shy to speak directly,\" Natsuki mused, keeping the latest note in her pocket.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Unveiled Heart",
+      "content": "<p>Determined to discover her admirer's identity, Natsuki set a trap. She wrote a note asking the sender to meet her at the school fountain after classes.</p><p>To her surprise, it wasn't Hiroshi but Takeshi, the new student who had been in her literature class. He approached nervously, holding a small bouquet of cherry blossoms.</p><p>\"I've been too afraid to speak to you in person,\" Takeshi admitted. \"Words seemed safer than risking rejection.\"</p><p>\"Sometimes the safest path isn't the most rewarding one,\" Natsuki replied, accepting the flowers. \"I've been hoping you'd find the courage.\"</p><p>Their love story had begun with words on paper but would be written together in person.</p>"
+    }
+  ]
+}

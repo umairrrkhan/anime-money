@@ -1,0 +1,19 @@
+{
+  "id": "shattered-mirror",
+  "title": "Shattered Mirror",
+  "author": "Emi Sato",
+  "genre": "Dark Romance",
+  "readTime": 17,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "Reflections of the Past",
+      "content": "<p>Kira had always been haunted by her past as a con artist who had destroyed countless lives, including that of her former partner Takeshi, whom she had betrayed for a fortune in stolen diamonds. Years later, living under a new identity, she thought she had escaped her past.</p><p>But Takeshi had survived her betrayal and spent years tracking her down, not for revenge, but to offer her a chance at redemption. He had discovered that the diamonds were cursed, slowly killing their owners, and only by returning them to their rightful place could the curse be broken.</p><p>Despite her guilt and fear, Kira felt a spark of hope and something more - a rekindled love for the man she had wronged.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Cursed Hearts",
+      "content": "<p>Working together to return the cursed diamonds, Kira and Takeshi faced supernatural forces that sought to prevent them from breaking the curse. As they journeyed to the diamonds' original location, their past feelings for each other resurfaced, complicated by years of betrayal and pain.</p><p>In a final confrontation with the entity that had cursed the diamonds, Kira had to sacrifice her chance at a normal life to save Takeshi and break the curse. But Takeshi refused to let her face the darkness alone, choosing to share her fate.</p><p>Their love, forged in darkness and tested by supernatural forces, ultimately proved stronger than the curse itself, transforming them both and giving them a second chance at happiness.</p>"
+    }
+  ]
+}

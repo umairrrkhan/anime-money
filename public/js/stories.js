@@ -22,23 +22,38 @@ class StoriesManager {
 
     async loadStories() {
         try {
-            // Load story data from JSON files
-            const storyFiles = [
-                'stories/the-last-sakura.json',
-                'stories/guardians-path.json',
-                'stories/whispers-of-spring.json',
-                'stories/moonlit-serenade.json',
-                'stories/oceans-secret.json',
-                'stories/digital-dreams.json',
-                'stories/eternal-love.json',
-                'stories/warriors-quest.json',
-                'stories/magical-forest.json'
-            ];
+            // Define the genre folders
+            const genres = ['Action', 'Adventure', 'Dark Romance', 'Fantasy', 'Open Minded', 'Romance', 'Sci-Fi'];
             
-            for (const file of storyFiles) {
-                const response = await fetch(file);
-                const storyData = await response.json();
-                this.stories[storyData.id] = storyData;
+            // Known story IDs for each genre (in a real app, this would be dynamic)
+            const storyIdsByGenre = {
+                'Action': ['beginning-again', 'blade-justice', 'guardians-path', 'neon-warrior', 'new-beginnings', 'shadow-strike', 'storm-breaker', 'warriors-quest'],
+                'Adventure': ['lost-treasure', 'quest-for-the-crystal', 'the-explorer', 'treasure-hunt'],
+                'Dark Romance': ['midnight-whispers', 'forbidden-desire', 'dark-hearts', 'twilight-love'],
+                'Fantasy': ['magical-forest', 'dragon-whisperer', 'crystal-chronicles', 'enchanted-grove'],
+                'Open Minded': ['mind-expansion', 'consciousness-shift', 'quantum-leap'],
+                'Romance': ['eternal-love', 'forbidden-love', 'heart-of-gold', 'star-crossed', 'love-beyond-time', 'dreams-of-you', 'secret-admirer', 'the-last-sakura'],
+                'Sci-Fi': ['neon-cyber', 'time-traveler', 'space-odyssey', 'robot-rebellion']
+            };
+            
+            // Load story data from JSON files in genre folders
+            for (const genre of genres) {
+                const storyIds = storyIdsByGenre[genre] || [];
+                
+                for (const storyId of storyIds) {
+                    try {
+                        const response = await fetch(`stories/${genre}/${storyId}/story.json`);
+                        if (response.ok) {
+                            const storyData = await response.json();
+                            // Add genre and path information to story data
+                            storyData.genre = genre;
+                            storyData.folderPath = `stories/${genre}/${storyId}`;
+                            this.stories[storyData.id] = storyData;
+                        }
+                    } catch (error) {
+                        console.warn(`Could not load story ${storyId} in genre ${genre}:`, error);
+                    }
+                }
             }
         } catch (error) {
             console.error('Error loading stories:', error);
@@ -95,11 +110,14 @@ class StoriesManager {
             // Create HTML for search results
             let resultsHTML = '';
             matchingStories.slice(0, 6).forEach(story => {
+                // Get the correct image path
+                const imagePath = story.folderPath ? `${story.folderPath}/cover.png` : 'assets/logo.png';
+                
                 resultsHTML += `
                     <a href="story/story.html?id=${story.id}" class="block p-3 hover:bg-gray-100 cursor-pointer border-b border-gray-100 last:border-b-0">
                         <div class="flex items-center">
                             <div class="w-10 h-10 rounded-md overflow-hidden mr-3 flex-shrink-0">
-                                <img src="assets/${story.id}.png" alt="${story.title}" class="w-full h-full object-cover" onerror="this.src='assets/logo.png'">
+                                <img src="${imagePath}" alt="${story.title}" class="w-full h-full object-cover" onerror="this.src='assets/logo.png'">
                             </div>
                             <div class="flex-1 min-w-0">
                                 <h4 class="font-semibold text-black truncate">${story.title}</h4>
@@ -120,6 +138,25 @@ class StoriesManager {
 
     getStoryById(storyId) {
         return this.stories[storyId] || null;
+    }
+    
+    // Get the cover image path for a story
+    getCoverImagePath(storyId) {
+        const story = this.stories[storyId];
+        if (story && story.folderPath) {
+            return `${story.folderPath}/cover.png`;
+        }
+        return 'assets/logo.png';
+    }
+    
+    // Get the banner image path for a story
+    getBannerImagePath(storyId) {
+        const story = this.stories[storyId];
+        if (story && story.folderPath) {
+            // Try banner first, fallback to cover if banner doesn't exist
+            return `${story.folderPath}/baner.png`;
+        }
+        return 'assets/logo.png';
     }
 }
 

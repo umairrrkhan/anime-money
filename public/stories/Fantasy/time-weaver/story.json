@@ -1,0 +1,19 @@
+{
+  "id": "time-weaver",
+  "title": "Time Weaver",
+  "author": "Chrona Sands",
+  "genre": "Fantasy",
+  "readTime": 18,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Fraying Threads",
+      "content": "<p>Elena had always been able to see the temporal threads that connected past, present, and future, but when she witnessed a catastrophic event that would destroy her hometown, she tried to warn others. Unfortunately, no one believed her predictions of doom.</p><p>When the disaster struck exactly as she had foreseen, Elena discovered that her ability to see time threads was both a gift and a curse. She was chosen by the Chronos Council - ancient beings who maintained the flow of time - to become a Time Weaver, tasked with preventing temporal paradoxes.</p><p>But her first mission revealed a darker truth: someone was deliberately creating time anomalies to reshape history for their own benefit.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Paradox of Hearts",
+      "content": "<p>Pursuing the temporal criminal through various time periods, Elena discovered that he was actually a future version of herself who had become corrupted by the power of time manipulation. This dark Elena sought to prevent a personal tragedy by changing the past, not realizing that her actions would unravel reality itself.</p><p>In a confrontation across multiple timelines, present Elena had to face the pain and loss that had driven her future self to madness. Rather than fighting her dark counterpart, she chose to embrace the tragedy and find strength in her loss.</p><p>This acceptance of her fate restored the natural flow of time and eliminated the paradox, but it also meant that Elena would have to live with her pain rather than trying to change it. She returned to her role as a Time Weaver, now wiser about the true cost of tampering with destiny.</p>"
+    }
+  ]
+}

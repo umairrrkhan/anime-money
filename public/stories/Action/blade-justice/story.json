@@ -1,0 +1,19 @@
+{
+  "id": "blade-justice",
+  "title": "Blade Justice",
+  "author": "Takeshi Yamamoto",
+  "genre": "Action",
+  "readTime": 14,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Betrayal",
+      "content": "<p>Samurai warrior Takeshi had served his lord faithfully for years, but when corrupt officials framed him for a crime he didn't commit, he was forced to become a ronin - a masterless warrior. His family was killed, his honor destroyed.</p><p>Years later, Takeshi discovered the truth behind the conspiracy that ruined his life. The same officials who had destroyed him were now planning to assassinate the new shogun and seize power for themselves.</p><p>With nothing left to lose, Takeshi picked up his blades once more, not for vengeance, but to prevent an even greater tragedy.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "The Final Duel",
+      "content": "<p>Takeshi tracked the corrupt officials to a remote fortress where they planned to carry out their coup. Fighting his way through dozens of guards, he confronted the man responsible for his family's death in an epic sword battle.</p><p>Their duel shook the very foundations of the fortress as steel clashed against steel. In the end, Takeshi's superior skill and righteous cause prevailed, but not without cost.</p><p>With his mission complete and his honor restored, Takeshi walked away from the smoking ruins, finally able to find peace in his family's memory.</p>"
+    }
+  ]
+}

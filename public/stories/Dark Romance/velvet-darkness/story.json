@@ -1,0 +1,19 @@
+{
+  "id": "velvet-darkness",
+  "title": "Velvet Darkness",
+  "author": "Rin Kobayashi",
+  "genre": "Dark Romance",
+  "readTime": 14,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Noble's Secret",
+      "content": "<p>Lady Yuki appeared to live a perfect life as a noble heiress, but she harbored a dark secret - she was cursed with a condition that caused her to age rapidly when exposed to sunlight. Confined to her mansion during the day, she only emerged at night to live her life.</p><p>When she met Hiroshi, a night watchman who worked near her estate, she was drawn to his kindness and the way he saw her as more than just a wealthy noble. But their romance was doomed from the start - Yuki's condition meant she would age decades in a single day of sunlight.</p><p>Despite the impossibility of their love, they continued to meet in secret, knowing that each stolen moment might be their last.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Eternal Night",
+      "content": "<p>As Yuki's condition worsened, she began to disappear for longer periods, hiding her rapid aging from Hiroshi. When he finally discovered the truth, he was devastated but refused to abandon her.</p><p>Hiroshi sought out ancient texts and mystical remedies to cure Yuki's curse, eventually learning of a ritual that could transfer the curse to another person. Without hesitation, he offered to take her burden, even though it would mean he would suffer the same fate.</p><p>In a bittersweet ending, their love transcended even the boundaries of mortality as they chose to face their fate together rather than apart.</p>"
+    }
+  ]
+}

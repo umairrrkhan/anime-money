@@ -1,0 +1,19 @@
+{
+  "id": "lost-treasure",
+  "title": "Lost Treasure",
+  "author": "Marina Takahashi",
+  "genre": "Adventure",
+  "readTime": 14,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "The Map",
+      "content": "<p>While cleaning out her late grandfather's study, Akira discovered a hidden compartment in his desk containing an old, hand-drawn map. The intricate drawing showed a path through the mountains to a location marked with a treasure chest symbol.</p><p>Her grandfather had been an archaeologist who had disappeared on an expedition when she was just a child. Could this map lead to something he had found before his disappearance?</p><p>\"I have to know what happened to him,\" Akira decided, packing her backpack for the journey. \"And if there's treasure involved, maybe I can use it to fund my own archaeological research.\"</p><p>With the map in hand and her faithful dog Kenji by her side, Akira set off into the mountains, following a trail that had been cold for decades.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "The Discovery",
+      "content": "<p>The journey was treacherous, with steep cliffs, rushing rivers, and unpredictable weather. But Akira pressed on, driven by the mystery of her grandfather's fate and the promise of discovery.</p><p>Deep in a hidden valley, she found the location marked on the map. Behind a waterfall, carved into the rock face, was a small chamber containing not gold or jewels, but something far more valuable - her grandfather's research notes and artifacts from his expeditions.</p><p>Among the papers was a letter addressed to her: \"My dearest Akira, if you're reading this, you've inherited more than just my curiosity. You've inherited my passion for discovery. Use these notes to continue the work I began. The real treasure is knowledge, not gold.\"</p><p>Akira smiled, understanding that her grandfather had left her the most valuable treasure of all - his legacy and her own path to follow.</p>"
+    }
+  ]
+}

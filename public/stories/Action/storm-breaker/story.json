@@ -1,0 +1,19 @@
+{
+  "id": "storm-breaker",
+  "title": "Storm Breaker",
+  "author": "Hiroshi Saito",
+  "genre": "Action",
+  "readTime": 13,
+  "chapters": [
+    {
+      "id": "chapter1",
+      "title": "Nature's Fury",
+      "content": "<p>When a massive typhoon threatened to destroy a coastal village, rescue team leader Yuki had to organize an evacuation. But as the storm intensified, several families became trapped in a remote section of town, cut off by rising floodwaters.</p><p>Despite the dangerous conditions, Yuki volunteered to lead a rescue mission into the heart of the storm. Armed with only emergency supplies and his survival training, he ventured into the maelstrom to save those who had been left behind.</p><p>Battling 100-mile-per-hour winds and treacherous currents, Yuki fought against nature itself to reach the stranded families.</p>"
+    },
+    {
+      "id": "chapter2",
+      "title": "Eye of the Storm",
+      "content": "<p>As Yuki reached the trapped families, the storm's eye passed over them, providing a brief respite from the fury. But he knew the calm was only temporary, and the storm's second half would be even more dangerous.</p><p>Leading his charges through the flooded streets, Yuki had to make split-second decisions that would mean life or death for everyone in his care. When a flash flood swept away their primary escape route, he improvised a daring plan to get everyone to safety.</p><p>Through courage, quick thinking, and sheer determination, Yuki managed to save every person in his group, proving that even against nature's mightiest forces, the human spirit could prevail.</p>"
+    }
+  ]
+}

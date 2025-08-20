@@ -63,7 +63,7 @@
 </head>
 <body class="bg-white text-black font-inter no-scrollbar">
     <!-- Dark Reader Header -->
-    <header id="readerHeader" class="reader-header fixed top-0 left-0 right-0 bg-gray-900 text-white z-50 py-3">
+    <header id="readerHeader" class="reader-header fixed top-0 left-0 right-0 bg-gray-900 text-white z-50 py-1">
         <div class="max-w-7xl mx-auto px-4 flex items-center justify-between">
             <!-- Logo and Story Info -->
             <div class="flex items-center space-x-3">
@@ -235,22 +235,19 @@
                 window.addEventListener('scroll', () => {
                     const currentScrollY = window.scrollY;
                     
-                    // Show header when scrolling up or at top of page
-                    if (currentScrollY < lastScrollY || currentScrollY < 100) {
-                        showHeader();
-                        clearTimeout(hideTimeout);
-                        hideTimeout = setTimeout(hideHeader, 3000);
-                    } else if (currentScrollY > lastScrollY) {
-                        // Hide header when scrolling down
-                        hideHeader();
-                    }
+                    // Show header only when scrolling up and near the top
+                if (currentScrollY < lastScrollY && currentScrollY < 100) {
+                    showHeader();
+                } else if (currentScrollY > lastScrollY) {
+                    // Hide header when scrolling down
+                    hideHeader();
+                }
                     
                     lastScrollY = currentScrollY;
                 });
                 
-                // Show header initially and hide after delay
-                showHeader();
-                hideTimeout = setTimeout(hideHeader, 3000);
+                // Hide header initially
+                hideHeader();
             }
             
             // Show header
