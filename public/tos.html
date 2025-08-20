@@ -30,6 +30,14 @@
     .section-container {
       scroll-margin-top: 100px;
     }
+    
+    .privacy-image {
+      width: 100%;
+      aspect-ratio: 9/16;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
   </style>
 </head>
 <body class="bg-white text-black font-inter">
@@ -63,93 +71,123 @@
   <!-- Hero Section -->
   <section class="relative text-black py-16 md:py-24 overflow-hidden mt-20">
     <div class="max-w-7xl mx-auto px-4">
-      <div class="text-center">
-        <h1 class="text-3xl md:text-5xl font-bold mb-6">Terms of Service</h1>
-        <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-          These Terms of Service govern your use of the Micro Anime website and services. Please read them carefully.
-        </p>
-        <div class="mt-8 text-gray-500">
-          <p>Last Updated: August 20, 2025</p>
+      <div class="flex flex-col lg:flex-row items-center justify-between">
+        <!-- Left Privacy Image -->
+        <div class="hidden lg:block w-1/5 mb-8 lg:mb-0">
+          <img src="assets/privacy 1.png" alt="Privacy Protection" class="w-full h-auto object-contain">
+        </div>
+        
+        <!-- Center Content -->
+        <div class="lg:w-3/5 text-center px-4 lg:px-0">
+          <h1 class="text-3xl md:text-5xl font-bold mb-6">Terms of Service</h1>
+          <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+            These Terms of Service govern your use of the Micro Anime website and services. Please read them carefully.
+          </p>
+          <div class="mt-8 text-gray-500">
+            <p>Last Updated: August 20, 2025</p>
+          </div>
+        </div>
+        
+        <!-- Right side now empty -->
+        <div class="hidden lg:block w-1/5 mb-8 lg:mb-0">
         </div>
       </div>
     </div>
   </section>
+  
+  <style>
+    .animation-delay-500 {
+      animation-delay: 0.5s;
+    }
+    
+    .animation-delay-1000 {
+      animation-delay: 1s;
+    }
+    
+    .animation-delay-1500 {
+      animation-delay: 1.5s;
+    }
+    
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+  </style>
 
   <!-- Table of Contents -->
-  <section class="py-12 bg-gray-50">
+  <section class="py-12">
     <div class="max-w-4xl mx-auto px-4">
-      <div class="bg-white rounded-xl shadow-sm p-6">
+      <div class="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
         <h2 class="text-2xl font-bold mb-6">Table of Contents</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <a href="#introduction" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#introduction" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">1</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">1</span>
               Introduction
             </h3>
           </a>
-          <a href="#user-accounts" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#user-accounts" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">2</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">2</span>
               User Accounts
             </h3>
           </a>
-          <a href="#use-of-service" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#use-of-service" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">3</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">3</span>
               Use of Service
             </h3>
           </a>
-          <a href="#intellectual-property" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#intellectual-property" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">4</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">4</span>
               Intellectual Property
             </h3>
           </a>
-          <a href="#privacy" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#privacy" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">5</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">5</span>
               Privacy
             </h3>
           </a>
-          <a href="#data-security" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#data-security" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">6</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">6</span>
               Data Security
             </h3>
           </a>
-          <a href="#third-party" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#third-party" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">7</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">7</span>
               Third-Party Services
             </h3>
           </a>
-          <a href="#disclaimer" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#disclaimer" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">8</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">8</span>
               Disclaimer
             </h3>
           </a>
-          <a href="#limitation" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#limitation" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">9</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">9</span>
               Limitation of Liability
             </h3>
           </a>
-          <a href="#termination" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#termination" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">10</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">10</span>
               Termination
             </h3>
           </a>
-          <a href="#governing-law" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#governing-law" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">11</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">11</span>
               Governing Law
             </h3>
           </a>
-          <a href="#changes" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-gray-300 transition-colors">
+          <a href="#changes" class="block p-4 rounded-lg hover:bg-gray-50 border border-gray-100 hover:border-green-300 transition-colors">
             <h3 class="font-semibold text-lg flex items-center">
-              <span class="w-6 h-6 rounded-full bg-blue-100 text-blue-800 flex items-center justify-center mr-3 text-sm">12</span>
+              <span class="w-6 h-6 rounded-full bg-green-100 text-green-800 flex items-center justify-center mr-3 text-sm">12</span>
               Changes to Terms
             </h3>
           </a>
@@ -160,11 +198,11 @@
 
   <!-- Main Content -->
   <main class="py-16">
-    <div class="max-w-4xl mx-auto px-4">
+    <div class="px-4">
       
       <!-- Section 1: Introduction -->
-      <section id="introduction" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="introduction" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">1. Introduction</h2>
           <div class="space-y-4 text-gray-700">
             <p>Welcome to Micro Anime ("we," "our," or "us"). These Terms of Service ("Terms") govern your access to and use of our website and services (collectively, the "Service").</p>
@@ -182,8 +220,8 @@
       </section>
 
       <!-- Section 2: User Accounts -->
-      <section id="user-accounts" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="user-accounts" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">2. User Accounts</h2>
           <div class="space-y-4 text-gray-700">
             <p>To access certain features of our Service, you may be required to create an account ("Account"). You agree to:</p>
@@ -206,8 +244,8 @@
       </section>
 
       <!-- Section 3: Use of Service -->
-      <section id="use-of-service" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="use-of-service" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">3. Use of Service</h2>
           <div class="space-y-4 text-gray-700">
             <p>You agree to use our Service only for lawful purposes and in accordance with these Terms. You agree not to:</p>
@@ -237,8 +275,8 @@
       </section>
 
       <!-- Section 4: Intellectual Property -->
-      <section id="intellectual-property" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="intellectual-property" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">4. Intellectual Property</h2>
           <div class="space-y-4 text-gray-700">
             <p>The Service and its original content, features, and functionality are owned by Micro Anime and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.</p>
@@ -266,15 +304,15 @@
       </section>
 
       <!-- Section 5: Privacy -->
-      <section id="privacy" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="privacy" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">5. Privacy</h2>
           <div class="space-y-4 text-gray-700">
             <p>Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your personal information. By using our Service, you consent to our collection and use of information in accordance with our Privacy Policy.</p>
             
             <div class="mt-6">
               <h3 class="font-bold text-lg mb-3">Information We Collect</h3>
-              <p>We collect information that you provide directly to us, such as when you create an account, use our Service, or contact us for support. This may include:</p>
+              <p>We collect information that you provide directly to us, such as when you create an account, use our Service, or contact us for support. This may include:</p></p>
               
               <ul class="list-disc pl-6 mt-3 space-y-2">
                 <li>Account registration information (name, email address)</li>
@@ -304,8 +342,8 @@
       </section>
 
       <!-- Section 6: Data Security -->
-      <section id="data-security" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="data-security" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">6. Data Security</h2>
           <div class="space-y-4 text-gray-700">
             <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
@@ -350,8 +388,8 @@
       </section>
 
       <!-- Section 7: Third-Party Services -->
-      <section id="third-party" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="third-party" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">7. Third-Party Services</h2>
           <div class="space-y-4 text-gray-700">
             <p>Our Service may contain links to third-party websites or services that are not owned or controlled by Micro Anime.</p>
@@ -378,8 +416,8 @@
       </section>
 
       <!-- Section 8: Disclaimer -->
-      <section id="disclaimer" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="disclaimer" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">8. Disclaimer</h2>
           <div class="space-y-4 text-gray-700">
             <p>Your use of the Service is at your sole risk. The Service is provided on an "AS IS" and "AS AVAILABLE" basis. The Service is provided without warranties of any kind, whether express or implied, including, but not limited to, implied warranties of merchantability, fitness for a particular purpose, non-infringement, or course of performance.</p>
@@ -402,8 +440,8 @@
       </section>
 
       <!-- Section 9: Limitation of Liability -->
-      <section id="limitation" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="limitation" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">9. Limitation of Liability</h2>
           <div class="space-y-4 text-gray-700">
             <p>To the maximum extent permitted by applicable law, in no event shall Micro Anime, nor its directors, employees, partners, agents, suppliers, or affiliates, be liable for any indirect, incidental, special, consequential, or punitive damages, including without limitation, loss of profits, data, use, goodwill, or other intangible losses, resulting from:</p>
@@ -429,8 +467,8 @@
       </section>
 
       <!-- Section 10: Termination -->
-      <section id="termination" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="termination" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">10. Termination</h2>
           <div class="space-y-4 text-gray-700">
             <p>We may terminate or suspend your access to all or part of the Service, without prior notice or liability, for any reason whatsoever, including without limitation if you breach the Terms.</p>
@@ -457,8 +495,8 @@
       </section>
 
       <!-- Section 11: Governing Law -->
-      <section id="governing-law" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="governing-law" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">11. Governing Law</h2>
           <div class="space-y-4 text-gray-700">
             <p>These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions.</p>
@@ -479,8 +517,8 @@
       </section>
 
       <!-- Section 12: Changes to Terms -->
-      <section id="changes" class="section-container mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section id="changes" class="section-container mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">12. Changes to Terms</h2>
           <div class="space-y-4 text-gray-700">
             <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is material, we will provide at least 30 days' notice prior to any new terms taking effect. What constitutes a material change will be determined at our sole discretion.</p>
@@ -507,8 +545,8 @@
       </section>
 
       <!-- Contact Section -->
-      <section class="mb-16">
-        <div class="bg-white rounded-xl shadow-sm p-6 md:p-8 border border-gray-100">
+      <section class="mb-16 px-4 md:px-8">
+        <div class="pb-8">
           <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200">Contact Us</h2>
           <div class="space-y-4 text-gray-700">
             <p>If you have any questions about these Terms, please contact us:</p>
@@ -555,7 +593,7 @@
             <a href="index.html" class="text-gray-600 hover:text-black transition-colors">Home</a>
             <a href="#" class="text-gray-600 hover:text-black transition-colors">Terms of Service</a>
             <a href="privacy.html" class="text-gray-600 hover:text-black transition-colors">Privacy Policy</a>
-            <a href="#" class="text-gray-600 hover:text-black transition-colors">Contact</a>
+            <a href="contact.html" class="text-gray-600 hover:text-black transition-colors">Contact</a>
           </div>
         </div>
       </div>
